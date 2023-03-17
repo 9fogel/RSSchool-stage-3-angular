@@ -22,7 +22,7 @@
         "plugin:import/recommended",
         "airbnb-base",
         "airbnb-typescript/base",
-        "prettier/@typescript-eslint",
+        "prettier",
         "plugin:prettier/recommended"
       ],
       "rules": {
