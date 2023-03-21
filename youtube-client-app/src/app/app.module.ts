@@ -6,10 +6,17 @@ import AppComponent from './app.component';
 import HeaderComponent from './components/header/header.component';
 import SearchResultsComponent from './components/search/search-results/search-results.component';
 import SearchItemComponent from './components/search/search-item/search-item.component';
+import FilteringCriteriaComponent from './components/filtering-criteria/filtering-criteria.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SearchResultsComponent, SearchItemComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SearchResultsComponent,
+    SearchItemComponent,
+    FilteringCriteriaComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
