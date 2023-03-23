@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export default class AppComponent {
   title = 'youtube-client-app';
+
+  searchValue?: string;
+
+  addItem(newItem: string) {
+    this.searchValue = newItem;
+  }
 }

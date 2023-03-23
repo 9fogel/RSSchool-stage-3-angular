@@ -1,4 +1,5 @@
-<h1>The app will be here</h1>
-<app-header></app-header>
+<h1 class="hidden">YouTube Client App</h1>
+<app-header class="header" [ngStyle]="{ 'background-color': 'yellow' }" (newItemEvent)="addItem($event)"></app-header>
+<p *ngIf="searchValue">Search results for {{searchValue}}</p>
 <app-search-results></app-search-results>
 <!-- <router-outlet></router-outlet> -->

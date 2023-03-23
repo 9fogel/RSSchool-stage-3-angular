@@ -1,0 +1,108 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 1140px;
+  background-color: #e5e5e5;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px auto;
+  // width: 570px;
+  font-size: 12px;
+  color: #4f4f4f;
+}
+
+.logo-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 37px;
+  color: black;
+  // background-color: #3f51b5;
+  background-color: yellow;
+  border-radius: 8px;
+}
+
+.play-icon {
+  color: red;
+  outline-color: red;
+}
+
+.search-form {
+  // max-width: 476px;
+  width: 476px;
+  // width: 100%;
+}
+
+mat-form-field .form-full-width {
+  padding: 4px 6px;
+  // width: 100%;
+  min-height: 24px;
+  line-height: 14px;
+}
+
+// [matInput] {
+.search-input {
+  width: 300px;
+  background-color: red;
+}
+
+.mat-mdc-form-field-infix {
+  width: 400px;
+}
+
+.filters-btn {
+  width: 30px;
+  padding: 0;
+}
+
+// button .mat-mdc-unelevated-button {
+//   height: 24px;
+// }
+
+.login-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1px;
+  padding-bottom: 1px;
+  width: 24px;
+  height: 24px;
+  background-color: #3f51b5;
+  // background-color: #2f80ed;
+  border-radius: 5px;
+}
+
+.login-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.user-icon {
+  font-size: 18px;
+  line-height: 24px;
+  // color: white;
+}
