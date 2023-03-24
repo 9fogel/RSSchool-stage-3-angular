@@ -15,6 +15,20 @@ export default class HeaderComponent {
     this.newItemEvent.emit(value);
   }
 
+  filtersShown = false;
+
+  @Output() newButtonEvent = new EventEmitter<boolean>();
+
+  changeOpenStatus(): void {
+    this.filtersShown = !this.filtersShown;
+  }
+
+  openFilters() {
+    this.changeOpenStatus();
+    console.log(this.filtersShown);
+    this.newButtonEvent.emit(this.filtersShown);
+  }
+
   searchRequestSubmitted = false;
 
   values = [1, 2, 3, 4];

@@ -10,7 +10,13 @@ export default class AppComponent {
 
   searchValue?: string;
 
-  addItem(newItem: string) {
+  filtersOpened = false;
+
+  addItem(newItem: string): void {
     this.searchValue = newItem;
+  }
+
+  switchFiltersView(event: boolean): void {
+    this.filtersOpened = event;
   }
 }
