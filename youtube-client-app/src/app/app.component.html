@@ -1,6 +1,5 @@
 <h1 class="hidden">YouTube Client App</h1>
-<app-header class="header" [ngStyle]="{ 'background-color': 'yellow' }" (newItemEvent)="addItem($event)" (newButtonEvent)="switchFiltersView($event)"></app-header>
-<!-- <p *ngIf="searchValue">Search results for {{searchValue}}</p> -->
+<app-header class="header" (newItemEvent)="addItem($event)" (newButtonEvent)="switchFiltersView($event)"></app-header>
 <app-filtering-criteria *ngIf="filtersOpened"></app-filtering-criteria>
-<app-search-results></app-search-results>
+<app-search-results *ngIf="searchValue"></app-search-results>
 <!-- <router-outlet></router-outlet> -->
