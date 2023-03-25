@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilteringCriteriaComponent } from './filtering-criteria.component';
+import FilteringCriteriaComponent from './filtering-criteria.component';
 
 describe('FilteringCriteriaComponent', () => {
   let component: FilteringCriteriaComponent;
@@ -8,9 +8,8 @@ describe('FilteringCriteriaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilteringCriteriaComponent ]
-    })
-    .compileComponents();
+      declarations: [FilteringCriteriaComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FilteringCriteriaComponent);
     component = fixture.componentInstance;

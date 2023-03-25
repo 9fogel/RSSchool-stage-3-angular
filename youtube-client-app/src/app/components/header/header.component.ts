@@ -25,7 +25,6 @@ export default class HeaderComponent {
 
   openFilters() {
     this.changeOpenStatus();
-    console.log(this.filtersShown);
     this.newButtonEvent.emit(this.filtersShown);
   }
 
