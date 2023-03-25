@@ -1,6 +1,6 @@
 <div class="container search-results-wrapper">
   <app-search-item
-  *ngFor="let searchItem of searchItems"
+  *ngFor="let searchItem of (searchItems | filter: filterName: filterOrder)"
   [searchItem]="searchItem">
 </app-search-item>
 </div>

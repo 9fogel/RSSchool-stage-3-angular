@@ -23,7 +23,7 @@
   margin-right: 10px;
 }
 
-.filters-item:hover {
+.filters-item:hover:not(:last-child) {
   cursor: pointer;
 }
 

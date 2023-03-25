@@ -1,8 +1,8 @@
 <div class="filters-wrapper">
   <div class="container">
     <ul class="filters-list small-container">Sorting by:
-      <li class="filters-item">date</li>
-      <li class="filters-item">count of views</li>
+      <li class="filters-item" (click)="onClick('date')">date</li>
+      <li class="filters-item" (click)="onClick('views')">count of views</li>
       <li class="filters-item">
         <span>by word or sentance</span>
         <form class="filter-form example-form">
