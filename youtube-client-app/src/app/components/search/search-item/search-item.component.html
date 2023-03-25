@@ -1,4 +1,4 @@
-<mat-card class="card">
+<mat-card appColorfulBorder [date]="date" class="card">
   <img mat-card-image src="{{ searchItem?.snippet?.thumbnails?.medium?.url }}" width="{{ imageWidth }}" alt="{{ searchItem?.snippet?.title }}">
   <mat-card-content class="card-content">
     <ul class="card-details">
@@ -20,7 +20,7 @@
       </li>
     </ul>
   </mat-card-content>
-  <mat-card-title>{{ searchItem?.snippet?.title }}</mat-card-title>
+  <mat-card-title>{{ searchItem?.snippet?.title }} </mat-card-title>
   <mat-card-actions>
     <button class="more-btn" mat-raised-button color="primary">more...
     </button>
