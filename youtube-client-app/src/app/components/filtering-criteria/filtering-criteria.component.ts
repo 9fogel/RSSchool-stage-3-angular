@@ -21,4 +21,15 @@ export default class FilteringCriteriaComponent {
     }
     this.newClickEvent.emit([sortOption, this.order[sortOption]]);
   }
+
+  searchValue?: string;
+
+  searchRequestSubmitted = false;
+
+  @Output() newSearchEvent = new EventEmitter<string>();
+
+  submitSearchRequest(value: string | undefined): void {
+    this.searchRequestSubmitted = true;
+    this.newSearchEvent.emit(value);
+  }
 }

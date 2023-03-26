@@ -4,10 +4,10 @@
       <li class="filters-item" (click)="onClick('date')">date</li>
       <li class="filters-item" (click)="onClick('views')">count of views</li>
       <li class="filters-item">
-        <span>by word or sentance</span>
-        <form class="filter-form example-form">
+        <span>by word or sentence</span>
+        <form class="filter-form example-form" (submit)="submitSearchRequest(filterInput.value)">
           <mat-form-field class="example-full-width">
-            <input matInput #filterInput>
+            <input [(ngModel)]="searchValue" matInput #filterInput name="searchFilterRequest">
           </mat-form-field>
         </form>
       </li>

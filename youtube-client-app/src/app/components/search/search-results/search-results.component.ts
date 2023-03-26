@@ -16,6 +16,8 @@ export default class SearchResultsComponent implements OnChanges {
 
   sortingOrder?: string;
 
+  @Input() searchFilterValue?: string;
+
   ngOnChanges(): void {
     if (this.sortingData) {
       [this.sortingOption, this.sortingOrder] = this.sortingData;

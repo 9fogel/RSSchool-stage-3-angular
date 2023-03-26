@@ -14,6 +14,8 @@ export default class AppComponent {
 
   sortingData = ['views', 'default'];
 
+  searchFilterValue?: string;
+
   addItem(newItem: string): void {
     this.searchValue = newItem;
   }
@@ -24,5 +26,9 @@ export default class AppComponent {
 
   applySorting(event: Array<string>): void {
     this.sortingData = event;
+  }
+
+  applySearch(event: string): void {
+    this.searchFilterValue = event;
   }
 }

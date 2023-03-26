@@ -1,4 +1,3 @@
-// import { Component, OnChanges, OnInit, Input } from '@angular/core';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -37,10 +36,4 @@ export default class HeaderComponent {
   submitSearchRequest(): void {
     this.searchRequestSubmitted = true;
   }
-
-  // constructor() {}
-
-  // OnChanges(): void {}
-
-  // OnInit(): void {}
 }
