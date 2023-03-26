@@ -21,8 +21,10 @@ export default class FilterPipe implements PipeTransform {
           return TITLE.includes(VALUE) || DESCRIPTION.includes(VALUE) || TAGS.includes(VALUE);
         }),
       );
+
       return Array.from(RESULT);
     }
+
     return searchItems;
   }
 }

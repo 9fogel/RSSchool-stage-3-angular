@@ -8,27 +8,27 @@ import { Component } from '@angular/core';
 export default class AppComponent {
   title = 'youtube-client-app';
 
-  searchValue?: string;
-
   filtersOpened = false;
 
-  sortingData = ['views', 'default'];
-
   searchFilterValue?: string;
+
+  searchValue?: string;
+
+  sortingData = ['views', 'default'];
 
   addItem(newItem: string): void {
     this.searchValue = newItem;
   }
 
-  switchFiltersView(event: boolean): void {
-    this.filtersOpened = event;
+  applySearch(event: string): void {
+    this.searchFilterValue = event;
   }
 
   applySorting(event: Array<string>): void {
     this.sortingData = event;
   }
 
-  applySearch(event: string): void {
-    this.searchFilterValue = event;
+  switchFiltersView(event: boolean): void {
+    this.filtersOpened = event;
   }
 }

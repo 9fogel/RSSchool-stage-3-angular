@@ -6,34 +6,30 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export default class HeaderComponent {
-  searchValue?: string;
-
   @Output() newItemEvent = new EventEmitter<string>();
-
-  addNewItem(value: string | undefined) {
-    this.newItemEvent.emit(value);
-  }
-
-  filtersShown = false;
 
   @Output() newButtonEvent = new EventEmitter<boolean>();
 
-  changeOpenStatus(): void {
-    this.filtersShown = !this.filtersShown;
+  searchValue?: string;
+
+  private filtersShown = false;
+
+  private searchRequestSubmitted = false;
+
+  addNewItem(value: string | undefined): void {
+    this.newItemEvent.emit(value);
   }
 
-  openFilters() {
+  openFilters(): void {
     this.changeOpenStatus();
     this.newButtonEvent.emit(this.filtersShown);
   }
 
-  searchRequestSubmitted = false;
-
-  values = [1, 2, 3, 4];
-
-  name = 'Vera';
-
   submitSearchRequest(): void {
     this.searchRequestSubmitted = true;
+  }
+
+  private changeOpenStatus(): void {
+    this.filtersShown = !this.filtersShown;
   }
 }

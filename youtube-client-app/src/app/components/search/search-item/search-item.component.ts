@@ -13,7 +13,7 @@ export default class SearchItemComponent implements OnInit {
 
   imageWidth = 223;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.date = this.searchItem?.snippet?.publishedAt;
   }
 }

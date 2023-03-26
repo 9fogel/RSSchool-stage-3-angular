@@ -6,13 +6,13 @@ import { Directive, ElementRef, Input, Renderer2, OnChanges } from '@angular/cor
 export default class ColorfulBorderDirective implements OnChanges {
   @Input() date?: string;
 
-  color: string;
+  private color: string;
 
   constructor(private elementRef: ElementRef, private renderer2: Renderer2) {
     this.color = 'red';
   }
 
-  public ngOnChanges(): void {
+  ngOnChanges(): void {
     this.setColor();
     this.renderer2.setStyle(
       this.elementRef.nativeElement,

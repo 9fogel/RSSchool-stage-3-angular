@@ -6,14 +6,20 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./filtering-criteria.component.scss'],
 })
 export default class FilteringCriteriaComponent {
-  order: { [key: string]: string } = {
+  @Output() newClickEvent = new EventEmitter<string[]>();
+
+  @Output() newSearchEvent = new EventEmitter<string>();
+
+  searchValue?: string;
+
+  private order: { [key: string]: string } = {
     date: 'default',
     views: 'default',
   };
 
-  @Output() newClickEvent = new EventEmitter<string[]>();
+  private searchRequestSubmitted = false;
 
-  onClick(sortOption: string) {
+  onClick(sortOption: string): void {
     if (this.order[sortOption] === 'default' || this.order[sortOption] === 'asc') {
       this.order[sortOption] = 'desc';
     } else if (this.order[sortOption] === 'desc') {
@@ -21,12 +27,6 @@ export default class FilteringCriteriaComponent {
     }
     this.newClickEvent.emit([sortOption, this.order[sortOption]]);
   }
-
-  searchValue?: string;
-
-  searchRequestSubmitted = false;
-
-  @Output() newSearchEvent = new EventEmitter<string>();
 
   submitSearchRequest(value: string | undefined): void {
     this.searchRequestSubmitted = true;

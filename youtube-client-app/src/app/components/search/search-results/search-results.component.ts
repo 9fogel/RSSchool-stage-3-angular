@@ -8,15 +8,15 @@ import response from '../../../data/response.json';
   styleUrls: ['./search-results.component.scss'],
 })
 export default class SearchResultsComponent implements OnChanges {
-  searchItems: Array<ISearchItem> = response.items;
+  @Input() searchFilterValue?: string;
 
   @Input() sortingData: Array<string> | undefined;
+
+  searchItems: Array<ISearchItem> = response.items;
 
   sortingOption?: string;
 
   sortingOrder?: string;
-
-  @Input() searchFilterValue?: string;
 
   ngOnChanges(): void {
     if (this.sortingData) {
