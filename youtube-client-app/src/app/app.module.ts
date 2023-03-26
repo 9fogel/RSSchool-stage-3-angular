@@ -15,6 +15,7 @@ import SearchResultsComponent from './components/search/search-results/search-re
 import SearchItemComponent from './components/search/search-item/search-item.component';
 import FilteringCriteriaComponent from './components/filtering-criteria/filtering-criteria.component';
 import ColorfulBorderDirective from './directives/colorful-border.directive';
+import SortingPipe from './pipes/sorting.pipe';
 import FilterPipe from './pipes/filter.pipe';
 
 @NgModule({
@@ -26,6 +27,7 @@ import FilterPipe from './pipes/filter.pipe';
     FilteringCriteriaComponent,
     ColorfulBorderDirective,
     FilterPipe,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,

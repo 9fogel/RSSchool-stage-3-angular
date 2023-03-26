@@ -13,12 +13,12 @@ export default class FilteringCriteriaComponent {
 
   @Output() newClickEvent = new EventEmitter<string[]>();
 
-  onClick(filter: string) {
-    if (this.order[filter] === 'default' || this.order[filter] === 'asc') {
-      this.order[filter] = 'desc';
-    } else if (this.order[filter] === 'desc') {
-      this.order[filter] = 'asc';
+  onClick(sortOption: string) {
+    if (this.order[sortOption] === 'default' || this.order[sortOption] === 'asc') {
+      this.order[sortOption] = 'desc';
+    } else if (this.order[sortOption] === 'desc') {
+      this.order[sortOption] = 'asc';
     }
-    this.newClickEvent.emit([filter, this.order[filter]]);
+    this.newClickEvent.emit([sortOption, this.order[sortOption]]);
   }
 }

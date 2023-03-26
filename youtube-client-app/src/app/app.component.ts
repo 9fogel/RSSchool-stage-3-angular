@@ -12,7 +12,7 @@ export default class AppComponent {
 
   filtersOpened = false;
 
-  filterData = ['views', 'default'];
+  sortingData = ['views', 'default'];
 
   addItem(newItem: string): void {
     this.searchValue = newItem;
@@ -22,7 +22,7 @@ export default class AppComponent {
     this.filtersOpened = event;
   }
 
-  applyFilter(event: Array<string>): void {
-    this.filterData = event;
+  applySorting(event: Array<string>): void {
+    this.sortingData = event;
   }
 }

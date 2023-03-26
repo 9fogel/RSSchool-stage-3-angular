@@ -10,15 +10,15 @@ import response from '../../../data/response.json';
 export default class SearchResultsComponent implements OnChanges {
   searchItems: Array<ISearchItem> = response.items;
 
-  @Input() filterData: Array<string> | undefined;
+  @Input() sortingData: Array<string> | undefined;
 
-  filterName: string | undefined;
+  sortingOption?: string;
 
-  filterOrder?: string;
+  sortingOrder?: string;
 
   ngOnChanges(): void {
-    if (this.filterData) {
-      [this.filterName, this.filterOrder] = this.filterData;
+    if (this.sortingData) {
+      [this.sortingOption, this.sortingOrder] = this.sortingData;
     }
   }
 }
