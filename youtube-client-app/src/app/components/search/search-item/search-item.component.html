@@ -1,5 +1,5 @@
-<mat-card appColorfulBorder [date]="date" class="card">
-  <img mat-card-image src="{{ searchItem?.snippet?.thumbnails?.medium?.url }}" width="{{ imageWidth }}" alt="{{ searchItem?.snippet?.title }}">
+<mat-card appColorfulBorder [date]="searchItem?.snippet?.publishedAt" class="card">
+  <img mat-card-image src="{{ searchItem?.snippet?.thumbnails?.medium?.url }}" width="223" alt="{{ searchItem?.snippet?.title }}">
   <mat-card-content class="card-content">
     <ul class="card-details">
       <li class="card-item">

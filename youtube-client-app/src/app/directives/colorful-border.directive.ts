@@ -1,16 +1,21 @@
 import { Directive, ElementRef, Input, Renderer2, OnChanges } from '@angular/core';
 
+enum Colors {
+  NewPost = 'blue',
+  FreshPost = 'yellow',
+  RegularPost = 'green',
+  OldPost = 'red',
+}
+
 @Directive({
   selector: '[appColorfulBorder]',
 })
 export default class ColorfulBorderDirective implements OnChanges {
   @Input() date?: string;
 
-  private color: string;
+  private color = Colors.OldPost;
 
-  constructor(private elementRef: ElementRef, private renderer2: Renderer2) {
-    this.color = 'red';
-  }
+  constructor(private elementRef: ElementRef, private renderer2: Renderer2) {}
 
   ngOnChanges(): void {
     this.setColor();
@@ -33,13 +38,13 @@ export default class ColorfulBorderDirective implements OnChanges {
       const HALF_A_YEAR_MS = 6 * MONTH_MS;
 
       if (TIME_DIFF < SEVEN_DAYS_MS) {
-        this.color = 'blue';
+        this.color = Colors.NewPost;
       } else if (TIME_DIFF >= SEVEN_DAYS_MS && TIME_DIFF < MONTH_MS) {
-        this.color = 'yellow';
+        this.color = Colors.FreshPost;
       } else if (TIME_DIFF >= MONTH_MS && TIME_DIFF < HALF_A_YEAR_MS) {
-        this.color = 'green';
+        this.color = Colors.RegularPost;
       } else {
-        this.color = 'red';
+        this.color = Colors.OldPost;
       }
     }
   }

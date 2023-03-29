@@ -1,6 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ISearchItem } from '../model/search-item.model';
 
+enum FilterName {
+  Date = 'date',
+  Views = 'views',
+}
+
+enum FilterOrder {
+  Desc = 'desc',
+  Asc = 'asc',
+}
+
 @Pipe({
   name: 'sorting',
 })
@@ -11,13 +21,13 @@ export default class SortingPipe implements PipeTransform {
     filterName: string | undefined,
     filterOrder: string | undefined,
   ): Array<ISearchItem> {
-    if (filterName === 'views') {
-      return filterOrder === 'desc'
+    if (filterName === FilterName.Views) {
+      return filterOrder === FilterOrder.Desc
         ? searchItems.sort((a, b) => +b.statistics.viewCount - +a.statistics.viewCount)
         : searchItems.sort((a, b) => +a.statistics.viewCount - +b.statistics.viewCount);
     }
-    if (filterName === 'date') {
-      return filterOrder === 'desc'
+    if (filterName === FilterName.Date) {
+      return filterOrder === FilterOrder.Desc
         ? searchItems.sort(
             (a, b) => Date.parse(b.snippet.publishedAt) - Date.parse(a.snippet.publishedAt),
           )

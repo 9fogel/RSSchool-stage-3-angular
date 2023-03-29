@@ -5,9 +5,9 @@
       <li class="filters-item" (click)="onClick('views')">count of views</li>
       <li class="filters-item">
         <span>by word or sentence</span>
-        <form class="filter-form example-form" (submit)="submitSearchRequest(filterInput.value)">
+        <form class="filter-form example-form" (submit)="submitSearchRequest(searchValue)">
           <mat-form-field class="example-full-width">
-            <input [(ngModel)]="searchValue" matInput #filterInput name="searchFilterRequest">
+            <input [(ngModel)]="searchValue" matInput name="searchFilterRequest">
           </mat-form-field>
         </form>
       </li>

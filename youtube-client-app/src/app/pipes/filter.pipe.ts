@@ -11,12 +11,12 @@ export default class FilterPipe implements PipeTransform {
     searchFilterValue: string | undefined,
   ): Array<ISearchItem> {
     if (searchFilterValue) {
+      const VALUE = searchFilterValue.toLowerCase().trim();
       const RESULT = new Set(
         searchItems.filter((item) => {
           const TITLE = item.snippet?.title.toLowerCase();
           const DESCRIPTION = item.snippet?.description.toLowerCase();
           const TAGS = item.snippet?.tags;
-          const VALUE = searchFilterValue.toLowerCase().trim();
 
           return TITLE.includes(VALUE) || DESCRIPTION.includes(VALUE) || TAGS.includes(VALUE);
         }),
