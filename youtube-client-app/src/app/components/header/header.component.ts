@@ -16,7 +16,7 @@ export default class HeaderComponent {
 
   private searchRequestSubmitted = false;
 
-  getSearchresults(value: string | undefined): void {
+  getSearchResults(value: string | undefined): void {
     this.newItemEvent.emit(value);
   }
 
