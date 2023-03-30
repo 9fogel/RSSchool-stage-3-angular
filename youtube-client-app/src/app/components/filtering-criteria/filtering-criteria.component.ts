@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FilterOrder } from 'src/app/model/common.enum';
 
 @Component({
   selector: 'app-filtering-criteria',
@@ -13,17 +14,20 @@ export default class FilteringCriteriaComponent {
   searchValue?: string;
 
   private order: { [key: string]: string } = {
-    date: 'default',
-    views: 'default',
+    date: FilterOrder.Default,
+    views: FilterOrder.Default,
   };
 
   private searchRequestSubmitted = false;
 
   onClick(sortOption: string): void {
-    if (this.order[sortOption] === 'default' || this.order[sortOption] === 'asc') {
-      this.order[sortOption] = 'desc';
-    } else if (this.order[sortOption] === 'desc') {
-      this.order[sortOption] = 'asc';
+    if (
+      this.order[sortOption] === FilterOrder.Default ||
+      this.order[sortOption] === FilterOrder.Asc
+    ) {
+      this.order[sortOption] = FilterOrder.Desc;
+    } else if (this.order[sortOption] === FilterOrder.Desc) {
+      this.order[sortOption] = FilterOrder.Asc;
     }
     this.newClickEvent.emit([sortOption, this.order[sortOption]]);
   }

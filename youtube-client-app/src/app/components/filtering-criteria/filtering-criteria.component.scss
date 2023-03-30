@@ -1,19 +1,18 @@
 .filters-wrapper {
   padding: 18px 0;
-  background-color: #e5e5e5;
+  background-color: var(--light-gray);
 }
 
 .filters-list {
   display: flex;
   align-items: flex-end;
   gap: 21px;
-  color: #929292;
+  color: var(--gray);
 }
 
 .filters-item {
-  color: #3f51b5;
-  // color: $blue;
-  border-bottom: 1px solid #3f51b5;
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
 }
 
 .filters-item:last-child {

@@ -1,15 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-// :root {
-//   $blue: #3f51b5;
-// }
-
-// @mixin flex-center {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
+:root {
+  --blue: #3f51b5;
+  --light-gray :#e5e5e5;
+  --gray: #929292;
+  --dark-gray: #4f4f4f;
+  --white: #ffffff;
+}
 
 html,
 body {
