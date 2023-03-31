@@ -1,0 +1,30 @@
+@import '../../../../mixin.scss';
+
+.not-found-wrapper {
+  @include flex-center;
+  gap: 27px;
+  margin: 10% auto;
+  max-width: 360px;
+}
+
+.not-found-bg {
+  @include flex-center;
+  width: 100px;
+  height: 75px;
+  background-color: var(--blue);
+  border-radius: 19px;
+}
+
+.not-found-icon {
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+  color: var(--white);
+}
+
+.not-found-message {
+  max-width: 233px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--gray);
+}

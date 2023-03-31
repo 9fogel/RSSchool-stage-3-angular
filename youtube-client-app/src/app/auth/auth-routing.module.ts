@@ -8,4 +8,4 @@ const routes: Routes = [{ path: '', component: AuthComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export default class AuthRoutingModule { }
+export default class AuthRoutingModule {}
