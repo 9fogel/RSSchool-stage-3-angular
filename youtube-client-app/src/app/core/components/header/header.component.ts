@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import SearchService from '../../services/search.service';
 import FiltersService from '../../services/filters.service';
 
@@ -8,7 +9,11 @@ import FiltersService from '../../services/filters.service';
   styleUrls: ['./header.component.scss'],
 })
 export default class HeaderComponent {
-  constructor(private searchService: SearchService, private filtersService: FiltersService) {}
+  constructor(
+    public router: Router,
+    private searchService: SearchService,
+    private filtersService: FiltersService,
+  ) {}
 
   @Output() newItemEvent = new EventEmitter<string>();
 
@@ -30,6 +35,11 @@ export default class HeaderComponent {
     this.filtersService.openFilters();
     // this.changeOpenStatus();
     // this.newButtonEvent.emit(this.filtersShown);
+  }
+
+  redirectToMainPage() {
+    console.log('click logo');
+    this.router.navigateByUrl('/youtube');
   }
 
   submitSearchRequest(value: string | undefined) {

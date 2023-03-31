@@ -1,7 +1,7 @@
 <div class="header-wrapper">
   <div class="container">
     <div class="header-content small-container">
-      <div class="logo-bg">
+      <div class="logo-bg" (click)="redirectToMainPage()">
         <mat-icon class="play-icon" color="primary">play_arrow</mat-icon>
       </div>
       <form class="search-form" (submit)="submitSearchRequest(searchValue)">

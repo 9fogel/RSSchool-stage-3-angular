@@ -8,7 +8,6 @@ import response from '../../../data/response.json';
   styleUrls: ['./search-results.component.scss'],
 })
 export default class SearchResultsComponent implements OnChanges {
-
   @Input() searchFilterValue?: string;
 
   @Input() sortingData: Array<string> | undefined;
