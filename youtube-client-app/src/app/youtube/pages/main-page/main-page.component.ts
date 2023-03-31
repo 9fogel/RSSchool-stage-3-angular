@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import SearchService from 'src/app/core/services/search.service';
+import FiltersService from 'src/app/core/services/filters.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,18 +10,20 @@ import SearchService from 'src/app/core/services/search.service';
 export default class MainPageComponent implements OnChanges, OnInit {
   searchValue?: string;
 
-  constructor(private searchService: SearchService) {}
+  filtersOpened = false;
+
+  constructor(private searchService: SearchService, private filtersService: FiltersService) {}
 
   ngOnInit(): void {
     console.log('init', this.searchService.searchValue);
+    this.filtersOpened = this.filtersService.filtersShown;
+    console.log('this.filtersOpened', this.filtersOpened);
   }
 
   ngOnChanges(): void {
     console.log('change', this.searchService);
     this.searchValue = this.searchService.searchValue;
   }
-
-  filtersOpened = false;
 
   searchFilterValue?: string;
 

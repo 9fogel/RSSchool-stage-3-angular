@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import SearchService from '../../services/search.service';
+import FiltersService from '../../services/filters.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import SearchService from '../../services/search.service';
   styleUrls: ['./header.component.scss'],
 })
 export default class HeaderComponent {
-  constructor(private searchService: SearchService) {}
+  constructor(private searchService: SearchService, private filtersService: FiltersService) {}
 
   @Output() newItemEvent = new EventEmitter<string>();
 
@@ -17,7 +18,7 @@ export default class HeaderComponent {
 
   // searchValue = this.searchService.searchValue;
 
-  private filtersShown = false;
+  // private filtersShown = false;
 
   // private searchRequestSubmitted = false;
 
@@ -26,15 +27,16 @@ export default class HeaderComponent {
   }
 
   openFilters(): void {
-    this.changeOpenStatus();
-    this.newButtonEvent.emit(this.filtersShown);
+    this.filtersService.openFilters();
+    // this.changeOpenStatus();
+    // this.newButtonEvent.emit(this.filtersShown);
   }
 
   submitSearchRequest(value: string | undefined) {
     this.searchService.submitSearchRequest(value);
   }
 
-  private changeOpenStatus(): void {
-    this.filtersShown = !this.filtersShown;
-  }
+  // private changeOpenStatus(): void {
+  //   this.filtersShown = !this.filtersShown;
+  // }
 }
