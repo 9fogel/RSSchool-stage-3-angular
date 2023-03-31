@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ISearchItem } from 'src/app/model/search-item.model';
+import { ISearchItem } from 'src/app/youtube/model/search-item.model';
 import response from '../../../data/response.json';
 
 @Component({
@@ -8,6 +8,7 @@ import response from '../../../data/response.json';
   styleUrls: ['./search-results.component.scss'],
 })
 export default class SearchResultsComponent implements OnChanges {
+
   @Input() searchFilterValue?: string;
 
   @Input() sortingData: Array<string> | undefined;

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FilterOrder } from 'src/app/model/common.enum';
+import { FilterOrder } from 'src/app/youtube/model/common.enum';
 
 @Component({
   selector: 'app-filtering-criteria',
@@ -11,7 +11,7 @@ export default class FilteringCriteriaComponent {
 
   @Output() newSearchEvent = new EventEmitter<string>();
 
-  searchValue?: string;
+  // searchValue?: string;
 
   private order: { [key: string]: string } = {
     date: FilterOrder.Default,

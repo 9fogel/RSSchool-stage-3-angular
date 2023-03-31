@@ -4,7 +4,7 @@
       <div class="logo-bg">
         <mat-icon class="play-icon" color="primary">play_arrow</mat-icon>
       </div>
-      <form class="search-form" (submit)="submitSearchRequest()">
+      <form class="search-form" (submit)="submitSearchRequest(searchValue)">
         <mat-form-field class="form-field form-full-width">
           <input class="search-input" [(ngModel)]="searchValue" matInput
             placeholder="What do you want to find out?" name="searchRequest">
