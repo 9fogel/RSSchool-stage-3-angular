@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MatButtonModule } from '@angular/material/button';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import CoreModule from './core/core.module';
 import AppRoutingModule from './app-routing.module';
 import AppComponent from './app.component';
@@ -29,7 +29,7 @@ import AppComponent from './app.component';
     // MatIconModule,
     // MatCardModule,
     CoreModule,
-    FormsModule,
+    // FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

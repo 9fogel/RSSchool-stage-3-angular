@@ -38,7 +38,6 @@ export default class HeaderComponent {
   }
 
   redirectToMainPage() {
-    console.log('click logo');
     this.router.navigateByUrl('/youtube');
   }
 

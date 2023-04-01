@@ -15,9 +15,7 @@ export default class MainPageComponent implements OnChanges, OnInit {
   constructor(private searchService: SearchService, private filtersService: FiltersService) {}
 
   ngOnInit(): void {
-    console.log('init', this.searchService.searchValue);
     this.filtersOpened = this.filtersService.filtersShown;
-    console.log('this.filtersOpened', this.filtersOpened);
   }
 
   ngOnChanges(): void {

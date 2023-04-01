@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import LoginService from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export default class LoginComponent {
-  constructor(public router: Router) {}
+  constructor(private loginService: LoginService) {}
 
-  // eslint-disable-next-line class-methods-use-this
-  onClick() {
-    this.router.navigateByUrl('/auth');
+  openLoginPage(): void {
+    this.loginService.openLoginPage();
+  }
+
+  logout(): void {
+    this.loginService.logout();
   }
 }
