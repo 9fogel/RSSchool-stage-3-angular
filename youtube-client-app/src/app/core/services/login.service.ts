@@ -9,6 +9,12 @@ export default class LoginService {
 
   loginValue: string | undefined;
 
+  prefix = '9fogel-auth';
+
+  getUserFromLocalStorage(): string | null {
+    return localStorage.getItem(`${this.prefix}-token`);
+  }
+
   logout(): void {
     this.deleteUserFromLocalStorage();
     this.openLoginPage();
@@ -24,8 +30,8 @@ export default class LoginService {
     this.redirectToMainPage();
   }
 
-  private deleteUserFromLocalStorage(prefix = '9fogel-auth'): void {
-    localStorage.removeItem(`${prefix}-token`);
+  private deleteUserFromLocalStorage(): void {
+    localStorage.removeItem(`${this.prefix}-token`);
     this.loginValue = '';
   }
 
@@ -33,9 +39,9 @@ export default class LoginService {
     this.router.navigateByUrl('/youtube');
   }
 
-  private saveUserToLocalStorage(prefix = '9fogel-auth'): void {
+  private saveUserToLocalStorage(): void {
     if (this.loginValue) {
-      localStorage.setItem(`${prefix}-token`, this.loginValue);
+      localStorage.setItem(`${this.prefix}-token`, this.loginValue);
     }
   }
 }
