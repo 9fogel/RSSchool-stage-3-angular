@@ -11,8 +11,6 @@ export default class FilteringCriteriaComponent {
 
   @Output() newSearchEvent = new EventEmitter<string>();
 
-  // searchValue?: string;
-
   private order: { [key: string]: string } = {
     date: FilterOrder.Default,
     views: FilterOrder.Default,

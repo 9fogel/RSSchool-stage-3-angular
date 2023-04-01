@@ -19,7 +19,6 @@ export default class MainPageComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(): void {
-    console.log('change', this.searchService);
     this.searchValue = this.searchService.searchValue;
   }
 

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export default class YoutubeService {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   videoId?: string;
 
@@ -16,5 +16,9 @@ export default class YoutubeService {
 
   returnToMainPage(): void {
     this.router.navigate(['youtube']);
+  }
+
+  redirectToPageNotFound(): void {
+    this.router.navigate(['**']);
   }
 }

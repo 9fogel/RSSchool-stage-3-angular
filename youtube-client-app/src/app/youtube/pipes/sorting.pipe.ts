@@ -2,16 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ISearchItem } from '../model/search-item.model';
 import { FilterName, FilterOrder } from '../model/common.enum';
 
-// enum FilterName {
-//   Date = 'date',
-//   Views = 'views',
-// }
-
-// enum FilterOrder {
-//   Desc = 'desc',
-//   Asc = 'asc',
-// }
-
 @Pipe({
   name: 'sorting',
 })

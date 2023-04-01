@@ -4,18 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export default class SearchService {
-  // constructor() {}
   searchValue?: string;
 
   private searchRequestSubmitted = false;
 
-  saveSearchRequest() {
+  saveSearchRequest(): string | undefined {
     return this.searchValue;
   }
 
   submitSearchRequest(value: string | undefined): void {
     this.searchRequestSubmitted = true;
     this.searchValue = value;
-    console.log(this.searchValue);
   }
 }

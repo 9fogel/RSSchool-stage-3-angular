@@ -21,6 +21,9 @@ export default class DetailsCardComponent implements OnInit {
     this.route.params.subscribe((params) => (this.id = params['id']));
     this.youtubeService.videoId = this.id;
     [this.searchItem] = response.items.filter((item) => item.id === this.id);
+    if (!this.searchItem) {
+      this.youtubeService.redirectToPageNotFound();
+    }
   }
 
   returnToMainPage(): void {

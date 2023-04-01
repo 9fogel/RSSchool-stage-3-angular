@@ -1,4 +1,4 @@
-import { ColorfulBorderDirective } from './colorful-border.directive';
+import ColorfulBorderDirective from './colorful-border.directive';
 
 describe('ColorfulBorderDirective', () => {
   it('should create an instance', () => {

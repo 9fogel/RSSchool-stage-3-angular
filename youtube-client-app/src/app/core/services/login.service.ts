@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 export default class LoginService {
   constructor(private router: Router) {}
 
-  loginValue: string | undefined;
+  private loginValue: string | undefined;
 
-  prefix = '9fogel-auth';
+  private prefix = '9fogel-auth';
 
   getUserFromLocalStorage(): string | null {
     return localStorage.getItem(`${this.prefix}-token`);

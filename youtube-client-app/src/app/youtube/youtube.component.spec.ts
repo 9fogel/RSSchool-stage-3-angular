@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YoutubeComponent } from './youtube.component';
+import YoutubeComponent from './youtube.component';
 
 describe('YoutubeComponent', () => {
   let component: YoutubeComponent;

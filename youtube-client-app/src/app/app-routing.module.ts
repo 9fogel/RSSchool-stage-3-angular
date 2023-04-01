@@ -6,7 +6,6 @@ import UserLoginGuard from './core/guards/user-login.guard';
 const routes: Routes = [
   {
     path: 'youtube',
-    // loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     loadChildren: () => import('./youtube/youtube.module'),
     canActivate: [UserLoginGuard],
     canLoad: [UserLoginGuard],
