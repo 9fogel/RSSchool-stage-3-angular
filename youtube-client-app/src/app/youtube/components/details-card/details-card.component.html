@@ -1,5 +1,5 @@
 <div class="details-card-wrapper">
-  <button class="back-btn" mat-flat-button color="primary">
+  <button class="back-btn" mat-flat-button color="primary" (click)="returnToMainPage()">
     <mat-icon class="back-icon" color="white">arrow_back_ios</mat-icon>
   </button>
   <mat-card appColorfulBorder [date]="searchItem.snippet.publishedAt" class="card details-card">
