@@ -12,6 +12,8 @@ import ColorfulBorderDirective from './directives/colorful-border.directive';
 import SortingPipe from './pipes/sorting.pipe';
 import FilterPipe from './pipes/filter.pipe';
 import MainPageComponent from './pages/main-page/main-page.component';
+import DetailedInfoPageComponent from './pages/detailed-info-page/detailed-info-page.component';
+import DetailsCardComponent from './components/details-card/details-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import MainPageComponent from './pages/main-page/main-page.component';
     ColorfulBorderDirective,
     SortingPipe,
     FilterPipe,
+    DetailedInfoPageComponent,
+    DetailsCardComponent,
   ],
   imports: [CommonModule, SharedModule, YoutubeRoutingModule],
 })
