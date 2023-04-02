@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import SearchService from 'src/app/core/services/search.service';
 import FiltersService from 'src/app/core/services/filters.service';
 
@@ -7,28 +7,12 @@ import FiltersService from 'src/app/core/services/filters.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
-export default class MainPageComponent implements OnChanges, OnInit {
-  searchValue?: string;
-
-  filtersOpened = false;
-
-  constructor(private searchService: SearchService, private filtersService: FiltersService) {}
-
-  ngOnInit(): void {
-    this.filtersOpened = this.filtersService.filtersShown;
-  }
-
-  ngOnChanges(): void {
-    this.searchValue = this.searchService.searchValue;
-  }
+export default class MainPageComponent {
+  constructor(public searchService: SearchService, public filtersService: FiltersService) {}
 
   searchFilterValue?: string;
 
   sortingData = ['views', 'default'];
-
-  // addItem(newItem: string): void {
-  //   this.searchValue = newItem;
-  // }
 
   applySearch(event: string): void {
     this.searchFilterValue = event;
@@ -37,8 +21,4 @@ export default class MainPageComponent implements OnChanges, OnInit {
   applySorting(event: Array<string>): void {
     this.sortingData = event;
   }
-
-  // switchFiltersView(event: boolean): void {
-  //   this.filtersOpened = event;
-  // }
 }

@@ -8,9 +8,9 @@ export default class SearchService {
 
   private searchRequestSubmitted = false;
 
-  saveSearchRequest(): string | undefined {
-    return this.searchValue;
-  }
+  // saveSearchRequest(): string | undefined {
+  //   return this.searchValue;
+  // }
 
   submitSearchRequest(value: string | undefined): void {
     this.searchRequestSubmitted = true;
