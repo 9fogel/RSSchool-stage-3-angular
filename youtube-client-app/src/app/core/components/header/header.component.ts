@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import SearchService from '../../services/search.service';
 import FiltersService from '../../services/filters.service';
@@ -15,26 +15,10 @@ export default class HeaderComponent {
     private filtersService: FiltersService,
   ) {}
 
-  @Output() newItemEvent = new EventEmitter<string>();
-
-  @Output() newButtonEvent = new EventEmitter<boolean>();
-
   searchValue?: string;
-
-  // searchValue = this.searchService.searchValue;
-
-  // private filtersShown = false;
-
-  // private searchRequestSubmitted = false;
-
-  getSearchResults(value: string | undefined): void {
-    this.newItemEvent.emit(value);
-  }
 
   openFilters(): void {
     this.filtersService.openFilters();
-    // this.changeOpenStatus();
-    // this.newButtonEvent.emit(this.filtersShown);
   }
 
   redirectToMainPage() {
@@ -44,8 +28,4 @@ export default class HeaderComponent {
   submitSearchRequest(value: string | undefined) {
     this.searchService.submitSearchRequest(value);
   }
-
-  // private changeOpenStatus(): void {
-  //   this.filtersShown = !this.filtersShown;
-  // }
 }
