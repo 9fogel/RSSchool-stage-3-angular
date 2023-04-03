@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import YoutubeService from './youtube.service';
 
-describe('YoutubeService', () => {
+describe('SearchService', () => {
   let service: YoutubeService;
 
   beforeEach(() => {

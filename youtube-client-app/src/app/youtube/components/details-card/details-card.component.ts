@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ISearchItem } from '../../model/search-item.model';
 import response from '../../../data/response.json';
-import YoutubeService from '../../services/youtube.service';
 
 @Component({
   selector: 'app-details-card',
@@ -10,23 +9,21 @@ import YoutubeService from '../../services/youtube.service';
   styleUrls: ['./details-card.component.scss'],
 })
 export default class DetailsCardComponent implements OnInit {
-  constructor(private youtubeService: YoutubeService, private route: ActivatedRoute) {}
-
-  id = this.youtubeService.videoId;
-
   searchItem: ISearchItem = {} as ISearchItem;
 
+  private id = '';
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+
   ngOnInit(): void {
-    // eslint-disable-next-line no-return-assign
-    this.route.params.subscribe((params) => (this.id = params['id']));
-    this.youtubeService.videoId = this.id;
+    this.id = this.activatedRoute.snapshot.params['id'];
     [this.searchItem] = response.items.filter((item) => item.id === this.id);
     if (!this.searchItem) {
-      this.youtubeService.redirectToPageNotFound();
+      this.router.navigate(['**']);
     }
   }
 
   returnToMainPage(): void {
-    this.youtubeService.returnToMainPage();
+    this.router.navigate(['youtube']);
   }
 }

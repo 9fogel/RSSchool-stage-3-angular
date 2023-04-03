@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { ISearchItem } from 'src/app/youtube/model/search-item.model';
-import YoutubeService from '../../services/youtube.service';
 
 @Component({
   selector: 'app-search-item',
@@ -8,11 +8,11 @@ import YoutubeService from '../../services/youtube.service';
   styleUrls: ['./search-item.component.scss'],
 })
 export default class SearchItemComponent {
-  constructor(private youtubeService: YoutubeService) {}
+  constructor(private router: Router) {}
 
   @Input() searchItem: ISearchItem = {} as ISearchItem;
 
-  redirectToDetailsPage(value: string) {
-    this.youtubeService.redirectToDetailsPage(value);
+  openDetailsPage(videoId: string) {
+    this.router.navigate(['youtube', videoId]);
   }
 }

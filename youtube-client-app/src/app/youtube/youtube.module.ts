@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import SharedModule from '../shared/shared.module';
 
 import YoutubeRoutingModule from './youtube-routing.module';
-import YoutubeComponent from './youtube.component';
 
 import FilteringCriteriaComponent from './components/filtering-criteria/filtering-criteria.component';
 import SearchResultsComponent from './components/search-results/search-results.component';
@@ -24,7 +23,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    YoutubeComponent,
     MainPageComponent,
     FilteringCriteriaComponent,
     SearchResultsComponent,

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export default class FiltersService {
-  public filtersShown = false;
+  filtersShown = false;
 
   openFilters(): void {
     this.filtersShown = !this.filtersShown;

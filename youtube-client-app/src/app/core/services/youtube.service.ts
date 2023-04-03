@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export default class SearchService {
-  searchValue?: string;
+export default class YoutubeService {
+  searchValue = '';
 
-  submitSearchRequest(value: string | undefined): void {
+  submitSearchRequest(value: string): void {
     this.searchValue = value;
   }
 }

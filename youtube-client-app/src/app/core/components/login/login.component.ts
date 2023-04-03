@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import LoginService from '../../services/login.service';
 
 @Component({
@@ -7,13 +8,14 @@ import LoginService from '../../services/login.service';
   styleUrls: ['./login.component.scss'],
 })
 export default class LoginComponent {
-  constructor(private loginService: LoginService) {}
+  constructor(private router: Router, private loginService: LoginService) {}
 
   openLoginPage(): void {
-    this.loginService.openLoginPage();
+    this.router.navigateByUrl('/auth');
   }
 
   logout(): void {
-    this.loginService.logout();
+    this.openLoginPage();
+    this.loginService.deleteUserFromLocalStorage();
   }
 }

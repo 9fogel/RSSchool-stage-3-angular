@@ -77,7 +77,7 @@ mat-card-content.card-content {
 .description-content {
   max-height: 190px;
   color: var(--gray);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .card-details {

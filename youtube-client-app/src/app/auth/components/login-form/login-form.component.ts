@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
 
 @Component({
@@ -7,15 +8,20 @@ import LoginService from 'src/app/core/services/login.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export default class LoginFormComponent {
-  constructor(private loginService: LoginService) {}
+  constructor(private router: Router, private loginService: LoginService) {}
 
-  loginValue?: string;
+  loginValue = '';
 
-  passwordValue?: string;
+  passwordValue = '';
 
   submitLoginForm(loginValue: string | undefined, passwordValue: string | undefined) {
     if (loginValue && passwordValue) {
-      this.loginService.submitLoginForm(loginValue);
+      this.loginService.saveUserToLocalStorage(loginValue);
+      this.redirectToMainPage();
     }
+  }
+
+  private redirectToMainPage(): void {
+    this.router.navigateByUrl('/youtube');
   }
 }
