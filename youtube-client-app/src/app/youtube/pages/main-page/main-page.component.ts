@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import YoutubeService from 'src/app/core/services/youtube.service';
+import SearchService from 'src/app/core/services/search.service';
 import FiltersService from 'src/app/core/services/filters.service';
 
 @Component({
@@ -12,7 +12,7 @@ export default class MainPageComponent {
 
   sortingData = ['views', 'default'];
 
-  constructor(public youtubeService: YoutubeService, public filtersService: FiltersService) {}
+  constructor(public searchService: SearchService, public filtersService: FiltersService) {}
 
   applySearch(searchValue: string): void {
     this.searchFilterValue = searchValue;

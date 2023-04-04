@@ -15,6 +15,7 @@ import FilterPipe from './pipes/filter.pipe';
 import MainPageComponent from './pages/main-page/main-page.component';
 import DetailedInfoPageComponent from './pages/detailed-info-page/detailed-info-page.component';
 import DetailsCardComponent from './components/details-card/details-card.component';
+import CardDetailsListComponent from './components/card-details-list/card-details-list.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
     FilterPipe,
     DetailedInfoPageComponent,
     DetailsCardComponent,
+    CardDetailsListComponent,
   ],
   imports: [CommonModule, SharedModule, YoutubeRoutingModule, RouterModule.forChild(routes)],
 })

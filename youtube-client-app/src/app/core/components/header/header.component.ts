@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import SearchService from '../../services/youtube.service';
+import SearchService from '../../services/search.service';
 import FiltersService from '../../services/filters.service';
 
 @Component({

@@ -46,3 +46,19 @@ ul {
 .filters-btn.mat-flat-button{
   padding: 0;
 }
+
+.main-page-card {
+  .card-details {
+    font-size: 10px;
+  }
+
+  mat-icon.card-icon {
+    width: 15px;
+    height: 13px;
+    font-size: 13px;
+  }
+
+  .card-item:last-child mat-icon.card-icon {
+    width: 13px;
+  }
+}

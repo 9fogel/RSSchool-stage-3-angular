@@ -14,24 +14,7 @@
         <h3 class="desc-title">Description:</h3>
         <p class="description-content">{{ searchItem.snippet.description }}</p>
       </div>
-      <ul class="card-details">
-        <li class="card-item">
-          <mat-icon class="card-icon">visibility</mat-icon>
-          <span>{{ searchItem.statistics.viewCount}}</span>
-        </li>
-        <li class="card-item">
-          <mat-icon class="card-icon">favorite</mat-icon>
-          <span>{{ searchItem.statistics.likeCount}}</span>
-        </li>
-        <li class="card-item">
-          <mat-icon class="card-icon">mood_bad</mat-icon>
-          <span>{{ searchItem.statistics.dislikeCount}}</span>
-        </li>
-        <li class="card-item">
-          <mat-icon class="card-icon">comment</mat-icon>
-          <span>{{ searchItem.statistics.commentCount}}</span>
-        </li>
-      </ul>
+      <app-card-details-list [searchItem]="searchItem"></app-card-details-list>
     </mat-card-content>
   </mat-card>
 

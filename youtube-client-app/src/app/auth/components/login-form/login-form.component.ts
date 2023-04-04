@@ -14,14 +14,14 @@ export default class LoginFormComponent {
 
   passwordValue = '';
 
-  submitLoginForm(loginValue: string | undefined, passwordValue: string | undefined) {
+  submitLoginForm(loginValue: string, passwordValue: string): void {
     if (loginValue && passwordValue) {
       this.loginService.saveUserToLocalStorage(loginValue);
-      this.redirectToMainPage();
+      this.redirectToMainPage('/youtube');
     }
   }
 
-  private redirectToMainPage(): void {
-    this.router.navigateByUrl('/youtube');
+  private redirectToMainPage(path: string): void {
+    this.router.navigateByUrl(path);
   }
 }

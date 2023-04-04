@@ -12,7 +12,7 @@ export default class SearchItemComponent {
 
   @Input() searchItem: ISearchItem = {} as ISearchItem;
 
-  openDetailsPage(videoId: string) {
+  openDetailsPage(videoId: string): void {
     this.router.navigate(['youtube', videoId]);
   }
 }

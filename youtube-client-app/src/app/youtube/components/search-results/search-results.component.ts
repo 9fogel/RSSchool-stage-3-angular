@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { ISearchItem } from 'src/app/youtube/model/search-item.model';
-import response from '../../../data/response.json';
+import YoutubeService from '../../services/youtube.service';
 
 @Component({
   selector: 'app-search-results',
@@ -12,11 +12,13 @@ export default class SearchResultsComponent implements OnChanges {
 
   @Input() sortingData: Array<string> | undefined;
 
-  searchItems: Array<ISearchItem> = response.items;
+  searchItems: Array<ISearchItem> = this.youtubeService.searchItems;
 
   sortingOption?: string;
 
   sortingOrder?: string;
+
+  constructor(private youtubeService: YoutubeService) {}
 
   ngOnChanges(): void {
     if (this.sortingData) {

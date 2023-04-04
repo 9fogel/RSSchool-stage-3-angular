@@ -18,21 +18,6 @@ mat-card-content.card-content {
   font-size: 10px;
 }
 
-.card-item {
-  display: flex;
-  gap: 3px;
-}
-
-mat-icon.card-icon {
-  width: 15px;
-  height: 13px;
-  font-size: 13px;
-}
-
-.card-item:last-child mat-icon.card-icon {
-  width: 13px;
-}
-
 .card mat-card-title {
   height: 52px;
   white-space: nowrap;

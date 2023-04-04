@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ISearchItem } from '../../model/search-item.model';
-import response from '../../../data/response.json';
+import YoutubeService from '../../services/youtube.service';
 
 @Component({
   selector: 'app-details-card',
@@ -13,11 +13,15 @@ export default class DetailsCardComponent implements OnInit {
 
   private id = '';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private youtubeService: YoutubeService,
+  ) {}
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    [this.searchItem] = response.items.filter((item) => item.id === this.id);
+    [this.searchItem] = this.youtubeService.searchItems.filter((item) => item.id === this.id);
     if (!this.searchItem) {
       this.router.navigate(['**']);
     }
