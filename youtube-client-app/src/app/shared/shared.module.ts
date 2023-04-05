@@ -4,13 +4,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const materialModules = [MatInputModule, MatButtonModule, MatIconModule, MatCardModule];
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, ...materialModules, FormsModule],
-  exports: [...materialModules, FormsModule],
+  imports: [CommonModule, ...materialModules, FormsModule, ReactiveFormsModule],
+  exports: [...materialModules, FormsModule, ReactiveFormsModule],
 })
 export default class SharedModule {}

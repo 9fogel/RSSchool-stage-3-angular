@@ -1,22 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export default class LoginFormComponent {
-  constructor(private router: Router, private loginService: LoginService) {}
+export default class LoginFormComponent implements OnInit {
+  loginForm!: FormGroup;
 
-  loginValue = '';
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private formBuilder: FormBuilder,
+  ) {}
 
-  passwordValue = '';
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      login: [''],
+      password: [''],
+    });
+  }
 
-  submitLoginForm(loginValue: string, passwordValue: string): void {
-    if (loginValue && passwordValue) {
-      this.loginService.saveUserToLocalStorage(loginValue);
+  submitLoginForm(): void {
+    if (this.loginForm.valid) {
+      this.loginService.saveUserToLocalStorage(this.loginForm.value.login); // TODO: JSON stringify??
       this.redirectToMainPage('/youtube');
     }
   }
