@@ -14,7 +14,7 @@
         <h3 class="desc-title">Description:</h3>
         <p class="description-content">{{ searchItem.snippet.description }}</p>
       </div>
-      <app-card-details-list [searchItem]="searchItem"></app-card-details-list>
+      <app-card-details-list [statistics]="searchItem.statistics"></app-card-details-list>
     </mat-card-content>
   </mat-card>
 

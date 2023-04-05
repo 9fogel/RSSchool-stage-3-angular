@@ -39,7 +39,7 @@ type TLocalized = {
   description: string;
 };
 
-type TStatistics = {
+export type TStatistics = {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;

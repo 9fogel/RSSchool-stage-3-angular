@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ISearchItem } from '../../model/search-item.model';
+import { TStatistics } from '../../model/search-item.model';
 
 @Component({
   selector: 'app-card-details-list',
@@ -7,5 +7,5 @@ import { ISearchItem } from '../../model/search-item.model';
   styleUrls: ['./card-details-list.component.scss'],
 })
 export default class CardDetailsListComponent {
-  @Input() searchItem: ISearchItem = {} as ISearchItem;
+  @Input() statistics: TStatistics = {} as TStatistics;
 }

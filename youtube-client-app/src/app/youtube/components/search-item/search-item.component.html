@@ -1,7 +1,7 @@
 <mat-card appColorfulBorder [date]="searchItem.snippet.publishedAt" class="card main-page-card">
   <img mat-card-image src="{{ searchItem.snippet.thumbnails.medium.url }}" width="223" alt="{{ searchItem.snippet.title }}">
   <mat-card-content class="card-content">
-    <app-card-details-list [searchItem]="searchItem"></app-card-details-list>
+    <app-card-details-list [statistics]="searchItem.statistics"></app-card-details-list>
   </mat-card-content>
   <mat-card-title>{{ searchItem.snippet.title }} </mat-card-title>
   <mat-card-actions>
