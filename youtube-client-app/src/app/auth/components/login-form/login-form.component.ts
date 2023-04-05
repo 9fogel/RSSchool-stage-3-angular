@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -19,14 +19,14 @@ export default class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      login: [''],
-      password: [''],
+      login: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
   submitLoginForm(): void {
     if (this.loginForm.valid) {
-      this.loginService.saveUserToLocalStorage(this.loginForm.value.login); // TODO: JSON stringify??
+      this.loginService.saveUserToLocalStorage(this.loginForm.value.login);
       this.redirectToMainPage('/youtube');
     }
   }
