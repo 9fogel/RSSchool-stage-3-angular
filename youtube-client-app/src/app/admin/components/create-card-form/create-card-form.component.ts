@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { createDateValidator } from 'src/app/shared/custom-validators';
 
 @Component({
   selector: 'app-create-card-form',
@@ -38,7 +39,12 @@ export default class CreateCardFormComponent {
           ],
         },
       ],
-      creationDate: ['', Validators.required],
+      creationDate: [
+        '',
+        {
+          validators: [Validators.required, createDateValidator()],
+        },
+      ],
     });
   }
 

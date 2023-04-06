@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import createPasswordValidator from '../../custom-validators';
+import { createPasswordValidator } from '../../../shared/custom-validators';
 
 @Component({
   selector: 'app-login-form',

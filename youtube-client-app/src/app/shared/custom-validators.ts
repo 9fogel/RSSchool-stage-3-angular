@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export default function createPasswordValidator(): ValidatorFn {
+export function createPasswordValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const PSW_VALUE = control.value;
 
@@ -22,5 +22,16 @@ export default function createPasswordValidator(): ValidatorFn {
       HAS_ENOUGH_LENGTH && HAS_UPPERCASE && HAS_LOWERCASE && HAS_NUMBERS && HAS_SPECIAL_CHARS;
 
     return IS_VALID ? null : { isPasswordStrong: true };
+  };
+}
+
+export function createDateValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const DATE_VALUE = Date.parse(control.value);
+    const TODAY = Date.now();
+
+    const IS_VALID = TODAY >= DATE_VALUE;
+
+    return IS_VALID ? null : { isDateValid: true };
   };
 }
