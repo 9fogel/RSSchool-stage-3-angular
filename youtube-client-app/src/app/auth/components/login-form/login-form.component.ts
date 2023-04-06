@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import createPasswordValidator from '../../custom-validators';
 
 @Component({
   selector: 'app-login-form',
@@ -9,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-form.component.scss'],
 })
 export default class LoginFormComponent implements OnInit {
+  hidePassword = true;
+
   loginForm!: FormGroup;
 
   constructor(
@@ -25,7 +28,12 @@ export default class LoginFormComponent implements OnInit {
           validators: [Validators.required, Validators.email],
         },
       ],
-      password: ['', Validators.required],
+      password: [
+        '',
+        {
+          validators: [Validators.required, createPasswordValidator()],
+        },
+      ],
     });
   }
 
