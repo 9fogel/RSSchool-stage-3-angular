@@ -10,6 +10,10 @@ import LoginService from '../../services/login.service';
 export default class LoginComponent {
   constructor(private router: Router, private loginService: LoginService) {}
 
+  openAdminPage(): void {
+    this.router.navigateByUrl('/admin');
+  }
+
   openLoginPage(): void {
     this.router.navigateByUrl('/auth');
   }

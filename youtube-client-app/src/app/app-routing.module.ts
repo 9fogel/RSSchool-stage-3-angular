@@ -12,6 +12,7 @@ const routes: Routes = [
   },
   { path: 'auth', loadChildren: () => import('./auth/auth.module') },
   { path: '', redirectTo: 'youtube', pathMatch: 'full' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module') },
   { path: '**', component: PageNotFoundComponent },
 ];
 

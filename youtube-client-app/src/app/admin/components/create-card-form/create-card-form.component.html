@@ -1,0 +1,50 @@
+<form [formGroup]="createCardForm" class="create-card-form" (submit)="submitCreateCardForm()">
+  <h2 class="create-card-form-title">Create new card</h2>
+  <mat-form-field class="form-full-width">
+    <mat-label>Title</mat-label>
+    <input formControlName="title" type="text" class="title-input" matInput>
+    <mat-error *ngIf="createCardForm.controls['title'].hasError('maxlength') && !createCardForm.controls['title'].hasError('required')">
+      The title is too long
+    </mat-error>
+    <mat-error *ngIf="createCardForm.controls['title'].hasError('minlength') && !createCardForm.controls['title'].hasError('required')">
+      The title is too short
+    </mat-error>
+    <mat-error *ngIf="createCardForm.controls['title'].hasError('required')">
+      Please enter a title
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <input formControlName="description" type="text" matInput>
+    <mat-error *ngIf="createCardForm.controls['description'].hasError('maxlength')">
+      The description is too long
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Img</mat-label>
+    <input formControlName="imageLink" type="url" matInput>
+    <mat-error *ngIf="createCardForm.controls['imageLink'].hasError('required')">
+      Please enter a link to the image
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Link video</mat-label>
+    <input formControlName="videoLink" type="url" matInput>
+    <mat-error *ngIf="createCardForm.controls['videoLink'].hasError('required')">
+      Please enter a link to the video
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Creation date</mat-label>
+    <input formControlName="creationDate" type="date" matInput>
+    <mat-error *ngIf="createCardForm.controls['creationDate'].hasError('required')">
+      Please enter a creation date
+    </mat-error>
+  </mat-form-field>
+
+  <button class="create-card-form-btn" mat-flat-button type="submit" color="primary">Create Card</button>
+</form>
