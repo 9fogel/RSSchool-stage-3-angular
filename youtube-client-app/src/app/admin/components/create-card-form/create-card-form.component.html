@@ -25,6 +25,9 @@
   <mat-form-field class="example-full-width">
     <mat-label>Img</mat-label>
     <input formControlName="imageLink" type="url" matInput>
+    <mat-error *ngIf="createCardForm.controls['imageLink'].hasError('pattern') && !createCardForm.controls['imageLink'].hasError('required')">
+      The image link is invalid
+    </mat-error>
     <mat-error *ngIf="createCardForm.controls['imageLink'].hasError('required')">
       Please enter a link to the image
     </mat-error>
@@ -33,6 +36,9 @@
   <mat-form-field class="example-full-width">
     <mat-label>Link video</mat-label>
     <input formControlName="videoLink" type="url" matInput>
+    <mat-error *ngIf="createCardForm.controls['videoLink'].hasError('pattern') && !createCardForm.controls['videoLink'].hasError('required')">
+      The video link is invalid
+    </mat-error>
     <mat-error *ngIf="createCardForm.controls['videoLink'].hasError('required')">
       Please enter a link to the video
     </mat-error>

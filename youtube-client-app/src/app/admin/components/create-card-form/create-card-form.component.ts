@@ -20,13 +20,28 @@ export default class CreateCardFormComponent {
         },
       ],
       description: ['', Validators.maxLength(255)],
-      imageLink: ['', Validators.required],
-      videoLink: ['', Validators.required],
+      imageLink: [
+        '',
+        {
+          validators: [
+            Validators.required,
+            Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'),
+          ],
+        },
+      ],
+      videoLink: [
+        '',
+        {
+          validators: [
+            Validators.required,
+            Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'),
+          ],
+        },
+      ],
       creationDate: ['', Validators.required],
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   submitCreateCardForm(): void {
     if (this.createCardForm.valid) {
       console.log('Card submitted successfully');
