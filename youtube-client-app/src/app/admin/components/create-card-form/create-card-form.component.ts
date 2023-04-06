@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createDateValidator } from 'src/app/shared/custom-validators';
 
@@ -7,7 +7,7 @@ import { createDateValidator } from 'src/app/shared/custom-validators';
   templateUrl: './create-card-form.component.html',
   styleUrls: ['./create-card-form.component.scss'],
 })
-export default class CreateCardFormComponent {
+export default class CreateCardFormComponent implements OnInit {
   createCardForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
