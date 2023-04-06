@@ -2,7 +2,7 @@
   <h2 class="login-form-title">Login</h2>
   <mat-form-field class="form-full-width">
     <mat-label>login</mat-label>
-    <input formControlName="login" type="email" class="login-input" [email]="true" matInput placeholder="Done Joe">
+    <input formControlName="login" type="email" class="login-input" matInput placeholder="Done Joe">
     <mat-error *ngIf="loginForm.controls['login'].hasError('email') && !loginForm.controls['login'].hasError('required')">
       Please enter a valid email address
     </mat-error>
