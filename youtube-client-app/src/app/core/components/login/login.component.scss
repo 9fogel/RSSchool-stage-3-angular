@@ -11,34 +11,43 @@
   color: var(--dark-gray);
 }
 
-.user-name:hover {
+.logged-in-wrapper,
+.logged-out-wrapper {
+  @include flex-center;
+  gap: 8px;
+}
+
+.user-name:hover,
+.logged-out-wrapper:hover,
+.logout-icon-wrapper:hover {
   cursor: pointer;
   color: var(--blue);
 }
 
-.login-bg {
-  position: relative;
-  @include flex-center;
-  padding: 1px;
-  width: 24px;
-  height: 24px;
-  background-color: var(--blue);
-  border-radius: 5px;
-}
 
-.login-bg:hover,
-.logout-bg:hover {
-  cursor: pointer;
-}
+// .login-bg {
+//   position: relative;
+//   @include flex-center;
+//   padding: 1px;
+//   width: 24px;
+//   height: 24px;
+//   background-color: var(--blue);
+//   border-radius: 5px;
+// }
 
-.login-link {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
+// .login-bg:hover,
+// .logout-bg:hover {
+//   cursor: pointer;
+// }
+
+// .login-link {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   z-index: 1;
+//   width: 100%;
+//   height: 100%;
+// }
 
 .login-icon-wrapper {
   @include flex-center;
@@ -49,7 +58,7 @@
   border-radius: 50%;
 }
 
-.user-icon {
-  font-size: 18px;
-  line-height: 24px;
-}
+// .user-icon {
+//   font-size: 18px;
+//   line-height: 24px;
+// }

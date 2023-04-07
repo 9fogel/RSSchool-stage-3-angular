@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import LoginService from '../../services/login.service';
 
 @Component({
@@ -7,8 +8,10 @@ import LoginService from '../../services/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export default class LoginComponent {
-  constructor(private router: Router, private loginService: LoginService) {}
+export default class LoginComponent implements OnInit {
+  loggedIn$?: Observable<boolean>;
+
+  constructor(public loginService: LoginService, private router: Router) {}
 
   openAdminPage(): void {
     this.router.navigateByUrl('/admin');
@@ -21,5 +24,9 @@ export default class LoginComponent {
   logout(): void {
     this.openLoginPage();
     this.loginService.deleteUserFromLocalStorage();
+  }
+
+  ngOnInit(): void {
+    this.loggedIn$ = this.loginService.getLoginStatus();
   }
 }

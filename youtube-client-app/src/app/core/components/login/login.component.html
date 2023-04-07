@@ -1,14 +1,14 @@
 <div class="login-wrapper">
-  <span class="user-name" (click)="openAdminPage()">Your Name</span>
-  <div class="login-bg" color="primary">
-    <div class="login-icon-wrapper">
-      <a class="login-link" (click)="openLoginPage()"></a>
-      <mat-icon class="user-icon" color="primary">person</mat-icon>
-    </div>
-  </div>
-  <div class="logout-bg" color="primary">
+  <div class="logged-in-wrapper" *ngIf="(loggedIn$ | async)">
+    <span  class="user-name" (click)="openAdminPage()">{{ this.loginService.loginValue }}</span>
     <div class="logout-icon-wrapper" (click)="logout()">
       <mat-icon class="logout-icon" color="primary">logout</mat-icon>
+    </div>
+  </div>
+  <div class="logged-out-wrapper" *ngIf="(loggedIn$ | async) === false" (click)="openLoginPage()">
+    <span class="login-text">Log In</span>
+    <div class="logout-icon-wrapper">
+      <mat-icon class="logout-icon" color="primary">login</mat-icon>
     </div>
   </div>
 </div>
