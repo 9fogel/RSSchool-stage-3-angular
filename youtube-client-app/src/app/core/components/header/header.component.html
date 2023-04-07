@@ -4,12 +4,11 @@
       <div class="logo-bg" (click)="redirectToMainPage()">
         <mat-icon class="play-icon" color="primary">play_arrow</mat-icon>
       </div>
-      <form class="search-form" (submit)="submitSearchRequest(searchValue)">
+        <form class="search-form">
         <mat-form-field class="form-field form-full-width">
-          <input class="search-input" [(ngModel)]="searchValue" matInput
+          <input class="search-input" (input)="submitSearchRequest(searchValue)" [(ngModel)]="searchValue" matInput
             placeholder="What do you want to find out?" name="searchRequest">
         </mat-form-field>
-        <button class="search-btn" mat-flat-button type="submit" color="primary">search</button>
       </form>
       <button class="filters-btn" mat-flat-button type="submit" color="primary" (click)="openFilters()">
         <mat-icon class="tune-icon" color="white">tune</mat-icon>

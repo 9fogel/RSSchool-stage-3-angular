@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export default class SearchService {
-  searchValue = '';
+  searchValue$ = new Subject<string>();
 
   submitSearchRequest(value: string): void {
-    this.searchValue = value;
+    this.searchValue$.next(value);
   }
 }
