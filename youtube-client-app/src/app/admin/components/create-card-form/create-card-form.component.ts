@@ -8,7 +8,7 @@ import { createDateValidator } from 'src/app/shared/custom-validators';
   styleUrls: ['./create-card-form.component.scss'],
 })
 export default class CreateCardFormComponent implements OnInit {
-  createCardForm!: FormGroup;
+  createCardForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -49,7 +49,7 @@ export default class CreateCardFormComponent implements OnInit {
   }
 
   submitCreateCardForm(): void {
-    if (this.createCardForm.valid) {
+    if (this.createCardForm?.valid) {
       console.log('Card submitted successfully');
     }
   }

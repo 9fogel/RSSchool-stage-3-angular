@@ -1,4 +1,4 @@
-<form [formGroup]="createCardForm" class="create-card-form" (submit)="submitCreateCardForm()">
+<form *ngIf="createCardForm" [formGroup]="createCardForm" class="create-card-form" (submit)="submitCreateCardForm()">
   <h2 class="create-card-form-title">Create new card</h2>
   <mat-form-field class="form-full-width">
     <mat-label>Title</mat-label>

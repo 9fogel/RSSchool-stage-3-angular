@@ -12,7 +12,7 @@ import { createPasswordValidator } from '../../../shared/custom-validators';
 export default class LoginFormComponent implements OnInit {
   hidePassword = true;
 
-  loginForm!: FormGroup;
+  loginForm?: FormGroup;
 
   constructor(
     private router: Router,
@@ -38,7 +38,7 @@ export default class LoginFormComponent implements OnInit {
   }
 
   submitLoginForm(): void {
-    if (this.loginForm.valid) {
+    if (this.loginForm?.valid) {
       this.loginService.saveUserToLocalStorage(this.loginForm.value.login);
       this.redirectToMainPage('/youtube');
     }
