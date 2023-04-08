@@ -39,7 +39,6 @@ export default class MainPageComponent implements OnInit {
         this.searchValue = value;
         this.youtubeService.getVideos(this.searchValue).subscribe((response) => {
           this.youtubeService.getStatistics(response).subscribe((videos) => {
-            console.log(videos);
             this.videos = videos;
           });
         });

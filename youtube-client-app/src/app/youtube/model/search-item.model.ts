@@ -1,5 +1,4 @@
 export interface ISearchItem {
-  map(arg0: (item: any) => any): void;
   kind: string;
   etag: string;
   id: TId;

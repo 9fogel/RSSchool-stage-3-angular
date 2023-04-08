@@ -15,7 +15,7 @@ export default class YoutubeService {
 
   private readonly VIDEOS_ENDPOINT = 'videos';
 
-  private readonly API_KEY = 'AIzaSyDK2s2EBdJsU4zM_5-OiMnIYxT9enkCEE8';
+  private readonly API_KEY = 'AIzaSyAO-0r8jsleM0rvGc5I-HcR3ZP83t6flS0';
 
   private RESULTS_LIMIT = 15;
 

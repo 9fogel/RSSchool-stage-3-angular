@@ -20,8 +20,14 @@ export default class DetailsCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params['id'];
-    // [this.searchItem] = this.youtubeService.searchItems.filter((item) => item.id === this.id);
+    // eslint-disable-next-line no-return-assign
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id'];
+      this.youtubeService.getStatistics(this.id).subscribe((videos) => {
+        [this.searchItem] = videos;
+      });
+    });
+
     if (!this.searchItem) {
       this.router.navigate(['**']);
     }
