@@ -9,8 +9,6 @@ import { ISearchResponse } from '../model/search-response.model';
   providedIn: 'root',
 })
 export default class YoutubeService {
-  private readonly YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3';
-
   private readonly SEARCH_ENDPOINT = 'search';
 
   private readonly VIDEOS_ENDPOINT = 'videos';
