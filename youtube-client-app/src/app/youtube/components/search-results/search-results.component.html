@@ -1,7 +1,7 @@
 <div class="container search-results-wrapper">
-  <app-search-item
-  *ngFor="let searchItem of (searchItems |  filter: searchFilterValue | sorting: sortingOption: sortingOrder )"
-  [searchItem]="searchItem">
+<app-search-item
+*ngFor="let searchItem of (videos |  filter: searchFilterValue | sorting: sortingOption: sortingOrder)"
+[searchItem]="searchItem">
 </app-search-item>
 </div>
 

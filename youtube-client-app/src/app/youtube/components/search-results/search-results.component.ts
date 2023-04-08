@@ -12,7 +12,11 @@ export default class SearchResultsComponent implements OnChanges {
 
   @Input() sortingData: Array<string> | undefined;
 
-  searchItems: Array<ISearchItem> = this.youtubeService.searchItems;
+  @Input() videos: Array<ISearchItem> = [] as Array<ISearchItem>;
+  // @Input() searchItem: ISearchItem = {} as ISearchItem;
+
+  // searchItems: Array<ISearchItem> = this.youtubeService.searchItems;
+  // videos$ = this.youtubeService.getVideos();
 
   sortingOption?: string;
 

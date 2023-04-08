@@ -18,7 +18,7 @@ export default class FilterPipe implements PipeTransform {
           const DESCRIPTION = item.snippet?.description.toLowerCase();
           const TAGS = item.snippet?.tags;
 
-          return TITLE.includes(VALUE) || DESCRIPTION.includes(VALUE) || TAGS.includes(VALUE);
+          return TITLE.includes(VALUE) || DESCRIPTION.includes(VALUE) || TAGS?.includes(VALUE);
         }),
       );
 

@@ -5,6 +5,7 @@
   </mat-card-content>
   <mat-card-title>{{ searchItem.snippet.title }} </mat-card-title>
   <mat-card-actions>
-    <button class="more-btn" mat-raised-button color="primary" (click)="openDetailsPage(searchItem.id)">more...</button>
+    <!-- <button class="more-btn" mat-raised-button color="primary" (click)="openDetailsPage(searchItem.id)">more...</button> -->
+    <button class="more-btn" mat-raised-button color="primary" (click)="openDetailsPage(searchItem.id.videoId)">more...</button>
   </mat-card-actions>
 </mat-card>
