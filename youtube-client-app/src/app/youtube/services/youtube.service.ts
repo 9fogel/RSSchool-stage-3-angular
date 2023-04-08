@@ -15,17 +15,14 @@ export default class YoutubeService {
 
   private readonly VIDEOS_ENDPOINT = 'videos';
 
-  private readonly API_KEY = 'AIzaSyDml6GPv6YEhFIYHqzztnCgxlGrQr5UHWA';
-
   private RESULTS_LIMIT = 15;
 
   constructor(private http: HttpClient) {}
 
   getVideos(searchValue: string): Observable<string> {
     return this.http
-      .get<ISearchResponse>(`${this.YOUTUBE_URL}/${this.SEARCH_ENDPOINT}`, {
+      .get<ISearchResponse>(this.SEARCH_ENDPOINT, {
         params: {
-          key: this.API_KEY,
           type: 'video',
           part: 'snippet',
           maxResults: this.RESULTS_LIMIT,
@@ -43,9 +40,8 @@ export default class YoutubeService {
 
   getStatistics(id: string): Observable<ISearchItem[]> {
     return this.http
-      .get<ISearchResponse>(`${this.YOUTUBE_URL}/${this.VIDEOS_ENDPOINT}`, {
+      .get<ISearchResponse>(this.VIDEOS_ENDPOINT, {
         params: {
-          key: this.API_KEY,
           id,
           part: 'snippet,statistics',
         },
