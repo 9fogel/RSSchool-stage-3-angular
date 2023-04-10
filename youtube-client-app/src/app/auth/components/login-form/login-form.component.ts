@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { createPasswordValidator } from '../../../shared/custom-validators';
 
 @Component({
@@ -9,10 +9,23 @@ import { createPasswordValidator } from '../../../shared/custom-validators';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export default class LoginFormComponent implements OnInit {
+export default class LoginFormComponent {
   hidePassword = true;
 
-  loginForm?: FormGroup;
+  loginForm = this.formBuilder.group({
+    login: [
+      '',
+      {
+        validators: [Validators.required, Validators.email],
+      },
+    ],
+    password: [
+      '',
+      {
+        validators: [Validators.required, createPasswordValidator()],
+      },
+    ],
+  });
 
   constructor(
     private router: Router,
@@ -20,25 +33,16 @@ export default class LoginFormComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) {}
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      login: [
-        '',
-        {
-          validators: [Validators.required, Validators.email],
-        },
-      ],
-      password: [
-        '',
-        {
-          validators: [Validators.required, createPasswordValidator()],
-        },
-      ],
-    });
+  get login(): AbstractControl<string | null> | null {
+    return this.loginForm.get('login');
+  }
+
+  get password(): AbstractControl<string | null> | null {
+    return this.loginForm.get('password');
   }
 
   submitLoginForm(): void {
-    if (this.loginForm?.valid) {
+    if (this.loginForm?.valid && this.loginForm.value.login) {
       this.loginService.saveUserToLocalStorage(this.loginForm.value.login);
       this.redirectToMainPage('/youtube');
     }

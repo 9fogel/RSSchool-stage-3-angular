@@ -21,7 +21,7 @@ export function createPasswordValidator(): ValidatorFn {
     const IS_VALID =
       HAS_ENOUGH_LENGTH && HAS_UPPERCASE && HAS_LOWERCASE && HAS_NUMBERS && HAS_SPECIAL_CHARS;
 
-    return IS_VALID ? null : { isPasswordStrong: true };
+    return IS_VALID ? null : { notStrongPassword: true };
   };
 }
 
@@ -32,6 +32,6 @@ export function createDateValidator(): ValidatorFn {
 
     const IS_VALID = TODAY >= DATE_VALUE;
 
-    return IS_VALID ? null : { isDateValid: true };
+    return IS_VALID ? null : { isDateInvalid: true };
   };
 }
