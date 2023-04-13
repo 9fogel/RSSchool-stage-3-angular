@@ -1,28 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import SearchService from 'src/app/core/services/search.service';
 import FiltersService from 'src/app/core/services/filters.service';
-import { debounceTime } from 'rxjs';
+import { filter, debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 import YoutubeService from '../../services/youtube.service';
-import { ISearchItem } from '../../model/search-item.model';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
-export default class MainPageComponent implements OnInit {
+export default class MainPageComponent implements OnInit, OnDestroy {
   searchFilterValue?: string;
 
   searchValue = '';
 
   sortingData = ['views', 'default'];
 
-  videos?: Array<ISearchItem>;
+  private subscription?: Subscription;
 
   constructor(
     public searchService: SearchService,
     public filtersService: FiltersService,
-    private youtubeService: YoutubeService,
+    public youtubeService: YoutubeService,
   ) {}
 
   applySearch(searchValue: string): void {
@@ -34,17 +33,18 @@ export default class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchService.searchValue$.pipe(debounceTime(500)).subscribe((value) => {
-      if (value.length >= 3) {
-        this.searchValue = value;
-        this.youtubeService.getVideos(this.searchValue).subscribe((response) => {
-          this.youtubeService.getStatistics(response).subscribe((videos) => {
-            this.videos = videos;
-          });
-        });
-      } else {
-        this.searchValue = '';
-      }
-    });
+    const DEBOUNCE_MS = 500;
+
+    this.subscription = this.searchService.searchValue$
+      .pipe(
+        filter((value) => value.length >= 3),
+        debounceTime(DEBOUNCE_MS),
+        distinctUntilChanged(),
+      )
+      .subscribe((value) => this.youtubeService.getVideos(value));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 }

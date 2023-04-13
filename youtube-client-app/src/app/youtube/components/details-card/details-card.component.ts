@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ISearchItem } from '../../model/search-item.model';
 import YoutubeService from '../../services/youtube.service';
 
@@ -8,10 +9,12 @@ import YoutubeService from '../../services/youtube.service';
   templateUrl: './details-card.component.html',
   styleUrls: ['./details-card.component.scss'],
 })
-export default class DetailsCardComponent implements OnInit {
+export default class DetailsCardComponent implements OnInit, OnDestroy {
   searchItem: ISearchItem = {} as ISearchItem;
 
   private id = '';
+
+  private subscription?: Subscription;
 
   constructor(
     private router: Router,
@@ -20,17 +23,18 @@ export default class DetailsCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // eslint-disable-next-line no-return-assign
-    this.activatedRoute.params.subscribe((params) => {
-      this.id = params['id'];
-      this.youtubeService.getStatistics(this.id).subscribe((videos) => {
-        [this.searchItem] = videos;
-      });
+    this.id = this.activatedRoute.snapshot.params['id'];
+    this.subscription = this.youtubeService.getStatistics(this.id).subscribe((videos) => {
+      [this.searchItem] = videos;
     });
 
     if (!this.searchItem) {
       this.router.navigate(['**']);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
   returnToMainPage(): void {

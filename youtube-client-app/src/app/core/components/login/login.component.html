@@ -1,6 +1,9 @@
 <div class="login-wrapper">
   <div class="logged-in-wrapper" *ngIf="(loggedIn$ | async)">
-    <span  class="user-name" (click)="openAdminPage()">{{ this.loginService.loginValue }}</span>
+    <button class="user-name" mat-button [matMenuTriggerFor]="menu">{{ loginService.loginValue }}</button>
+    <mat-menu #menu="matMenu">
+      <button [routerLink]="['/admin']" mat-menu-item>Create New Card</button>
+    </mat-menu>
     <div class="logout-icon-wrapper" (click)="logout()">
       <mat-icon class="logout-icon" color="primary">logout</mat-icon>
     </div>
