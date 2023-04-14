@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
+import SearchService from 'src/app/core/services/search.service';
 import { ISearchItem } from '../model/search-item.model';
 import { ISearchResponse } from '../model/search-response.model';
 
@@ -9,7 +10,7 @@ import { ISearchResponse } from '../model/search-response.model';
   providedIn: 'root',
 })
 export default class YoutubeService {
-  videos?: Array<ISearchItem>;
+  videos$?: Observable<ISearchItem[]>;
 
   private readonly SEARCH_ENDPOINT = 'search';
 
@@ -17,10 +18,10 @@ export default class YoutubeService {
 
   private RESULTS_LIMIT = 15;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private searchService: SearchService) {}
 
-  getVideos(searchValue: string): void {
-    this.http
+  getVideos(searchValue: string): Observable<ISearchItem[]> {
+    return this.http
       .get<ISearchResponse>(this.SEARCH_ENDPOINT, {
         params: {
           type: 'video',
@@ -32,17 +33,15 @@ export default class YoutubeService {
       .pipe(
         switchMap((response) => {
           const ID_STRING = response.items.map((items) => items.id.videoId).join(',');
+          this.videos$ = this.getStatistics(ID_STRING);
 
-          return this.getStatistics(ID_STRING);
+          return this.videos$;
         }),
         catchError((error) => {
           console.log('[ERROR]', error);
           return EMPTY;
         }),
-      )
-      .subscribe((response) => {
-        this.videos = response;
-      });
+      );
   }
 
   getStatistics(id: string): Observable<ISearchItem[]> {

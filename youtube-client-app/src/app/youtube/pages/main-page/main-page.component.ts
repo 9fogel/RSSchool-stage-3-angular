@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import SearchService from 'src/app/core/services/search.service';
 import FiltersService from 'src/app/core/services/filters.service';
-import { filter, debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
+import { filter, debounceTime, distinctUntilChanged, Subscription, Observable } from 'rxjs';
 import YoutubeService from '../../services/youtube.service';
+import { ISearchItem } from '../../model/search-item.model';
 
 @Component({
   selector: 'app-main-page',
@@ -15,6 +16,8 @@ export default class MainPageComponent implements OnInit, OnDestroy {
   searchValue = '';
 
   sortingData = ['views', 'default'];
+
+  videos$?: Observable<ISearchItem[]>;
 
   private subscription?: Subscription;
 
@@ -33,15 +36,19 @@ export default class MainPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const DEBOUNCE_MS = 500;
+    this.videos$ = this.youtubeService.videos$;
 
+    const DEBOUNCE_MS = 500;
     this.subscription = this.searchService.searchValue$
       .pipe(
         filter((value) => value.length >= 3),
         debounceTime(DEBOUNCE_MS),
         distinctUntilChanged(),
       )
-      .subscribe((value) => this.youtubeService.getVideos(value));
+      .subscribe((value) => {
+        this.videos$ = this.youtubeService.getVideos(value);
+        return this.videos$;
+      });
   }
 
   ngOnDestroy(): void {

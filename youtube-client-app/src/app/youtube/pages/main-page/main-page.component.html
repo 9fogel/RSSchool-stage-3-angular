@@ -1,3 +1,3 @@
 <app-filtering-criteria *ngIf="filtersService.filtersShown" (newClickEvent)="applySorting($event)" (newSearchEvent)="applySearch($event)"></app-filtering-criteria>
 
-<app-search-results *ngIf="youtubeService.videos" [videos]="youtubeService.videos" [sortingData]="sortingData"  [searchFilterValue]="searchFilterValue"></app-search-results>
+<app-search-results *ngIf="videos$" [videos$]="videos$" [sortingData]="sortingData"  [searchFilterValue]="searchFilterValue"></app-search-results>

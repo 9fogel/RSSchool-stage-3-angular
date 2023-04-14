@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ISearchItem } from 'src/app/youtube/model/search-item.model';
 
 @Component({
@@ -11,7 +12,7 @@ export default class SearchResultsComponent implements OnChanges {
 
   @Input() sortingData: Array<string> | undefined;
 
-  @Input() videos: Array<ISearchItem> = [] as Array<ISearchItem>;
+  @Input() videos$?: Observable<ISearchItem[]>;
 
   sortingOption?: string;
 
