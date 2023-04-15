@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import CoreModule from './core/core.module';
 import AppRoutingModule from './app-routing.module';
 import AppComponent from './app.component';
-// import { cardsReducer } from './redux/reducers/app.reducer';
+import { cardsReducer, videosReducer } from './redux/reducers/app.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,8 +15,8 @@ import AppComponent from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    StoreModule.forRoot({}, {}),
-    // StoreModule.forRoot({ app: appReducer }, {}),
+    // StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ youtube: videosReducer, admin: cardsReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
   providers: [],

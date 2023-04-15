@@ -51,7 +51,7 @@ export default class MainPageComponent implements OnInit, OnDestroy {
       .subscribe((value) => {
         this.videos$ = this.youtubeService.getVideos(value);
 
-        this.store.dispatch(appActions.loadVideos(this.videos$));
+        this.store.dispatch(appActions.loadVideos({ videos: this.videos$ }));
         return this.videos$;
       });
   }

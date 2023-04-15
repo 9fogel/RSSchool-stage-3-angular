@@ -52,7 +52,7 @@ export default class CreateCardFormComponent implements OnInit {
 
   submitCreateCardForm(): void {
     if (this.createCardForm?.valid) {
-      this.store.dispatch(appActions.createCard(this.createCardForm.value));
+      this.store.dispatch(appActions.createCard({ customCard: this.createCardForm.value }));
       console.log('Card submitted successfully', this.createCardForm.value);
     }
   }

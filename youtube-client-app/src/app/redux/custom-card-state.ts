@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ActionReducerMap, MetaReducer, StoreModule } from '@ngrx/store';
+import { ActionReducerMap, MetaReducer, StoreModule, createFeatureSelector } from '@ngrx/store';
 import * as appState from 'src/app/redux/reducers/app.reducer';
 
 export const FEATURE_KEY = 'custom-cards';
@@ -18,3 +18,5 @@ export const metaReducers: MetaReducer<State>[] = [];
   imports: [StoreModule.forFeature(FEATURE_KEY, reducers, { metaReducers })],
 })
 export class CustomCardStateModule {}
+
+export const selectCustomCardState = createFeatureSelector<State>(FEATURE_KEY);
