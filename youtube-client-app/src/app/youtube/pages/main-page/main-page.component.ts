@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import SearchService from 'src/app/core/services/search.service';
 import FiltersService from 'src/app/core/services/filters.service';
 import { filter, debounceTime, distinctUntilChanged, Subscription, Observable } from 'rxjs';
+import * as appActions from 'src/app/redux/actions/app.actions';
+import { Store } from '@ngrx/store';
 import YoutubeService from '../../services/youtube.service';
 import { ISearchItem } from '../../model/search-item.model';
 
@@ -25,6 +27,7 @@ export default class MainPageComponent implements OnInit, OnDestroy {
     public searchService: SearchService,
     public filtersService: FiltersService,
     public youtubeService: YoutubeService,
+    private store: Store,
   ) {}
 
   applySearch(searchValue: string): void {
@@ -47,6 +50,8 @@ export default class MainPageComponent implements OnInit, OnDestroy {
       )
       .subscribe((value) => {
         this.videos$ = this.youtubeService.getVideos(value);
+
+        this.store.dispatch(appActions.loadVideos(this.videos$));
         return this.videos$;
       });
   }

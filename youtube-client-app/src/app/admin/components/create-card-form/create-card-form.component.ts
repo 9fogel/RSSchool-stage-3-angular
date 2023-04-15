@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createDateValidator } from 'src/app/shared/custom-validators';
+import { Store } from '@ngrx/store';
+import * as appActions from 'src/app/redux/actions/app.actions';
 
 @Component({
   selector: 'app-create-card-form',
@@ -10,7 +12,7 @@ import { createDateValidator } from 'src/app/shared/custom-validators';
 export default class CreateCardFormComponent implements OnInit {
   createCardForm?: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   ngOnInit() {
     this.createCardForm = this.formBuilder.group({
@@ -50,7 +52,8 @@ export default class CreateCardFormComponent implements OnInit {
 
   submitCreateCardForm(): void {
     if (this.createCardForm?.valid) {
-      console.log('Card submitted successfully');
+      this.store.dispatch(appActions.createCard(this.createCardForm.value));
+      console.log('Card submitted successfully', this.createCardForm.value);
     }
   }
 }
