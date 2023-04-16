@@ -27,9 +27,9 @@ export default class MainPageComponent implements OnInit, OnDestroy {
 
   sortingData = ['views', 'default'];
 
-  private subscription?: Subscription;
+  videos$ = this.store.select(getAllVideos);
 
-  videos$: Observable<ISearchItem[]> | undefined;
+  private subscription?: Subscription;
 
   constructor(
     public searchService: SearchService,
@@ -47,18 +47,19 @@ export default class MainPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.videos$ = this.store.select(getAllVideos);
-
     const DEBOUNCE_MS = 500;
     this.subscription = this.searchService.searchValue$
       .pipe(
         filter((value) => value.length >= 3),
         debounceTime(DEBOUNCE_MS),
         distinctUntilChanged(),
-        switchMap((value) => this.youtubeService.getVideos(value)),
       )
-      .subscribe((response) => {
-        this.store.dispatch(appActions.loadVideos({ videos: response }));
+      .subscribe((value) => {
+        this.store.dispatch(
+          appActions.requestVideos({
+            value,
+          }),
+        );
       });
   }
 

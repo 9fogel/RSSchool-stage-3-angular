@@ -7,6 +7,11 @@ export const createCard = createAction(
   props<{ customCard: INewCard }>(),
 );
 
+export const requestVideos = createAction(
+  '[Search Input] Request Videos',
+  props<{ value: string }>(),
+);
+
 export const loadVideos = createAction(
   '[Youtube API] Videos Loaded',
   props<{ videos: ISearchItem[] }>(),

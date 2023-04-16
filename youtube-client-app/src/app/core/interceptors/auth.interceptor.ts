@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 export default class AuthInterceptor implements HttpInterceptor {
   // eslint-disable-next-line class-methods-use-this
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const KEY = 'AIzaSyDml6GPv6YEhFIYHqzztnCgxlGrQr5UHWA';
+    const KEY = 'AIzaSyAO-0r8jsleM0rvGc5I-HcR3ZP83t6flS0';
     const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3';
 
     return next.handle(
