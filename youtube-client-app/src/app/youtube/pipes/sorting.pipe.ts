@@ -14,15 +14,15 @@ export default class SortingPipe implements PipeTransform {
   ): Array<ISearchItem> {
     if (filterName === FilterName.Views) {
       return filterOrder === FilterOrder.Desc
-        ? searchItems.sort((a, b) => +b.statistics.viewCount - +a.statistics.viewCount)
-        : searchItems.sort((a, b) => +a.statistics.viewCount - +b.statistics.viewCount);
+        ? [...searchItems].sort((a, b) => +b.statistics.viewCount - +a.statistics.viewCount)
+        : [...searchItems].sort((a, b) => +a.statistics.viewCount - +b.statistics.viewCount);
     }
     if (filterName === FilterName.Date) {
       return filterOrder === FilterOrder.Desc
-        ? searchItems.sort(
+        ? [...searchItems].sort(
             (a, b) => Date.parse(b.snippet.publishedAt) - Date.parse(a.snippet.publishedAt),
           )
-        : searchItems.sort(
+        : [...searchItems].sort(
             (a, b) => Date.parse(a.snippet.publishedAt) - Date.parse(b.snippet.publishedAt),
           );
     }

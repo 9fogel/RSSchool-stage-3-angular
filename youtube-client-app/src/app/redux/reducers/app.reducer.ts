@@ -1,21 +1,17 @@
-import { Observable } from 'rxjs';
 import { ISearchItem } from 'src/app/youtube/model/search-item.model';
 import * as appActions from 'src/app/redux/actions/app.actions';
 import { createReducer, on } from '@ngrx/store';
 import { INewCard } from '../state.models';
 
-const addCustomCard = (customCards: INewCard[], card: INewCard) => {
-  console.log(customCards, card);
-  return [...customCards, card];
-};
+const addCustomCard = (customCards: INewCard[], card: INewCard) => [...customCards, card];
 
 export interface AppState {
-  youtubeVideos: Observable<ISearchItem[]>; // ISearchItem[]
+  youtubeVideos: ISearchItem[];
   customCards: INewCard[];
 }
 
 export const initialState: AppState = {
-  youtubeVideos: new Observable<ISearchItem[]>(), // []
+  youtubeVideos: [],
   customCards: [],
 };
 

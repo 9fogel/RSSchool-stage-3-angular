@@ -22,7 +22,12 @@ export default class CreateCardFormComponent implements OnInit {
           validators: [Validators.required, Validators.minLength(3), Validators.maxLength(20)],
         },
       ],
-      description: ['', Validators.maxLength(255)],
+      description: [
+        '',
+        {
+          validators: [Validators.required, Validators.maxLength(255)],
+        },
+      ],
       imageLink: [
         '',
         {

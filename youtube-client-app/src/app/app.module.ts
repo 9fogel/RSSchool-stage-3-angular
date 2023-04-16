@@ -15,7 +15,6 @@ import { cardsReducer, videosReducer } from './redux/reducers/app.reducer';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    // StoreModule.forRoot({}, {}),
     StoreModule.forRoot({ youtube: videosReducer, admin: cardsReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
