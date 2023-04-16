@@ -22,4 +22,15 @@ export default class YoutubeApiEffects {
       ),
     ),
   );
+
+  getVideoById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(appActions.requestVideoById),
+      mergeMap(({ value }) =>
+        this.youtubeService
+          .getStatistics(value)
+          .pipe(map((videos) => appActions.loadVideoById({ videos }))),
+      ),
+    ),
+  );
 }

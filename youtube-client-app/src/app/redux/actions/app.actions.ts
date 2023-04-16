@@ -12,7 +12,17 @@ export const requestVideos = createAction(
   props<{ value: string }>(),
 );
 
+export const requestVideoById = createAction(
+  '[Details Card] Request Video By Id',
+  props<{ value: string }>(),
+);
+
 export const loadVideos = createAction(
   '[Youtube API] Videos Loaded',
+  props<{ videos: ISearchItem[] }>(),
+);
+
+export const loadVideoById = createAction(
+  '[Youtube API] Video By Id Loaded',
   props<{ videos: ISearchItem[] }>(),
 );

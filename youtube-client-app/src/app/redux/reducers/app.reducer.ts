@@ -7,11 +7,13 @@ const addCustomCard = (customCards: INewCard[], card: INewCard) => [...customCar
 
 export interface AppState {
   youtubeVideos: ISearchItem[];
+  videoById: ISearchItem | null;
   customCards: INewCard[];
 }
 
 export const initialState: AppState = {
   youtubeVideos: [],
+  videoById: null,
   customCards: [],
 };
 
@@ -28,5 +30,9 @@ export const videosReducer = createReducer(
   on(appActions.loadVideos, (state, action) => ({
     ...state,
     youtubeVideos: action.videos,
+  })),
+  on(appActions.loadVideoById, (state, action) => ({
+    ...state,
+    videoById: action.videos[0],
   })),
 );

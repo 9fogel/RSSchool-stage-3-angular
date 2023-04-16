@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ISearchItem } from '../../model/search-item.model';
-import YoutubeService from '../../services/youtube.service';
+import * as appActions from 'src/app/redux/actions/app.actions';
+import { Store } from '@ngrx/store';
+import { getVideoById } from 'src/app/redux/selectors/app.selectors';
 
 @Component({
   selector: 'app-details-card',
@@ -10,7 +11,7 @@ import YoutubeService from '../../services/youtube.service';
   styleUrls: ['./details-card.component.scss'],
 })
 export default class DetailsCardComponent implements OnInit, OnDestroy {
-  searchItem: ISearchItem = {} as ISearchItem;
+  searchItem$ = this.store.select(getVideoById);
 
   private id = '';
 
@@ -19,16 +20,14 @@ export default class DetailsCardComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private youtubeService: YoutubeService,
+    private store: Store,
   ) {}
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.subscription = this.youtubeService.getStatistics(this.id).subscribe((videos) => {
-      [this.searchItem] = videos;
-    });
+    this.store.dispatch(appActions.requestVideoById({ value: this.id }));
 
-    if (!this.searchItem) {
+    if (!this.searchItem$) {
       this.router.navigate(['**']);
     }
   }
