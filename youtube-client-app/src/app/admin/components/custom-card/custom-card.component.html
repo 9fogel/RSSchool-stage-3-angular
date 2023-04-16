@@ -1,0 +1,11 @@
+<mat-card class="card main-page-card">
+  <img mat-card-image src="{{ customCard.imageLink }}" width="223" alt="{{ customCard.title }}">
+  <mat-card-title>{{ customCard.title }} </mat-card-title>
+  <mat-card-content class="card-content">
+    <div class="desc-wrapper">
+      <h3 class="desc-title">Description:</h3>
+      <p class="description-content">{{ customCard.description }}</p>
+      <a href="{{ customCard.videoLink }}" target="_blank">Link to video</a>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,5 @@
+<div class="container custom-cards-wrapper">
+  <ng-container *ngIf="(cards$| async) as customCards">
+    <app-custom-card *ngFor="let customCard of customCards" [customCard]="customCard"></app-custom-card>
+  </ng-container>
+</div>
