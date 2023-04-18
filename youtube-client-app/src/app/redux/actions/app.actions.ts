@@ -22,7 +22,17 @@ export const loadVideos = createAction(
   props<{ videos: ISearchItem[] }>(),
 );
 
+export const loadVideosFailed = createAction(
+  '[Youtube API] Videos Loading Failed',
+  props<{ error: Error }>(),
+);
+
 export const loadVideoById = createAction(
   '[Youtube API] Video By Id Loaded',
   props<{ videos: ISearchItem[] }>(),
+);
+
+export const loadVideoByIdFailed = createAction(
+  '[Youtube API] Video By Id Loading Failed',
+  props<{ error: Error }>(),
 );
