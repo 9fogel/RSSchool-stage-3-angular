@@ -11,28 +11,22 @@ export default class YoutubeApiEffects {
   getVideos$ = createEffect(() =>
     this.actions$.pipe(
       ofType(appActions.requestVideos),
-      mergeMap(({ value }) =>
-        this.youtubeService.getVideos(value).pipe(
-          map((videos) =>
-            appActions.loadVideos({
-              videos,
-            }),
-          ),
-          catchError((error) => of(appActions.loadVideosFailed({ error }))),
-        ),
+      mergeMap(({ value }) => this.youtubeService.getVideos(value)),
+      map((videos) =>
+        appActions.loadVideos({
+          videos,
+        }),
       ),
+      catchError((error) => of(appActions.loadVideosFailed({ error }))),
     ),
   );
 
   getVideoById$ = createEffect(() =>
     this.actions$.pipe(
       ofType(appActions.requestVideoById),
-      mergeMap(({ value }) =>
-        this.youtubeService.getStatistics(value).pipe(
-          map((videos) => appActions.loadVideoById({ videos })),
-          catchError((error) => of(appActions.loadVideoByIdFailed({ error }))),
-        ),
-      ),
+      mergeMap(({ value }) => this.youtubeService.getStatistics(value)),
+      map((videos) => appActions.loadVideoById({ videos })),
+      catchError((error) => of(appActions.loadVideoByIdFailed({ error }))),
     ),
   );
 }
