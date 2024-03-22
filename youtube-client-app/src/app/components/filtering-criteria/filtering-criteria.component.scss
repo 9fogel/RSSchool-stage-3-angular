@@ -1,0 +1,33 @@
+.filters-wrapper {
+  padding: 18px 0;
+  background-color: var(--light-gray);
+}
+
+.filters-list {
+  display: flex;
+  align-items: flex-end;
+  gap: 21px;
+  color: var(--gray);
+}
+
+.filters-item {
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+}
+
+.filters-item:last-child {
+  border-bottom: none;
+}
+
+.filters-item:last-child span {
+  margin-right: 10px;
+}
+
+.filters-item:hover:not(:last-child) {
+  cursor: pointer;
+}
+
+.filter-form {
+  display: inline-block;
+  height: 14px;
+}

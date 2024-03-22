@@ -1,0 +1,114 @@
+@import '../../../mixin.scss';
+
+.header-wrapper{
+  position: relative;
+  @include flex-center;
+  font-size: 12px;
+  background-color: var(--light-gray);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px auto;
+}
+
+.logo-bg {
+  @include flex-center;
+  width: 50px;
+  height: 37px;
+  background-color: var(--blue);
+  border-radius: 8px;
+}
+
+.play-icon {
+  color: var(--white);
+}
+
+.search-form {
+  display: flex;
+  width: 476px;
+  height: 24px;
+}
+
+mat-form-field.form-field {
+  display: block;
+  margin-right: 0;
+  margin-top: -16px;
+  padding: 4px 6px;
+  width: 396px;
+  width: 364px;
+  min-height: 24px;
+  line-height: 14px;
+}
+
+.search-input {
+  width: 300px;
+}
+
+.mat-mdc-form-field-infix {
+  width: 400px;
+}
+
+button.search-btn {
+  min-width: 80px;
+  min-height: 24px;
+  max-height: 24px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+button.filters-btn {
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+button .tune-icon {
+  font-size: 18px;
+  top: 2px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.login-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dark-gray);
+}
+
+.login-bg {
+  @include flex-center;
+  padding: 1px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--blue);
+  border-radius: 5px;
+}
+
+.login-icon-wrapper {
+  @include flex-center;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+.user-icon {
+  font-size: 18px;
+  line-height: 24px;
+}

@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+:root {
+  --blue: #3f51b5;
+  --light-gray :#e5e5e5;
+  --gray: #929292;
+  --dark-gray: #4f4f4f;
+  --white: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 1140px;
+}
+
+.small-container {
+  margin: 0 auto;
+  width: 572px;
+}
+
+.filters-btn.mat-flat-button{
+  padding: 0;
+}

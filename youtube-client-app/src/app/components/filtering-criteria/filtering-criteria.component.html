@@ -1,0 +1,18 @@
+<div class="filters-wrapper">
+  <div class="container">
+    <ul class="filters-list small-container">Sorting by:
+      <li class="filters-item" (click)="onClick('date')">date</li>
+      <li class="filters-item" (click)="onClick('views')">count of views</li>
+      <li class="filters-item">
+        <span>by word or sentence</span>
+        <form class="filter-form example-form" (submit)="submitSearchRequest(searchValue)">
+          <mat-form-field class="example-full-width">
+            <input [(ngModel)]="searchValue" matInput name="searchFilterRequest">
+          </mat-form-field>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
