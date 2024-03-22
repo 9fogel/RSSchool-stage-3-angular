@@ -1,0 +1,14 @@
+<form class="login-form" (submit)="submitLoginForm(loginValue, passwordValue)">
+  <h2 class="login-form-title">Login</h2>
+  <mat-form-field class="form-full-width">
+    <mat-label>login</mat-label>
+    <input type="text" class="login-input" [(ngModel)]="loginValue" matInput placeholder="Done Joe" name="login">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>password</mat-label>
+    <input type="password" [(ngModel)]="passwordValue" matInput placeholder="12345678" name="passsword">
+  </mat-form-field>
+
+  <button class="login-form-btn" mat-flat-button type="submit" color="primary">Login</button>
+</form>

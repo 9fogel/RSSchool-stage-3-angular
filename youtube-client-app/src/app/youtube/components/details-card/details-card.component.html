@@ -1,0 +1,22 @@
+<div class="details-card-wrapper" *ngIf="searchItem">
+  <button class="back-btn" mat-flat-button color="primary" (click)="returnToMainPage()">
+    <mat-icon class="back-icon" color="white">arrow_back_ios</mat-icon>
+  </button>
+  <mat-card appColorfulBorder [date]="searchItem.snippet.publishedAt" class="card details-card">
+    <img class="card-image" mat-card-image src="{{ searchItem.snippet.thumbnails.standard.url }}"
+      alt="{{ searchItem.snippet.title }}">
+    <mat-card-header class="card-header">
+      <mat-card-title class="card-title">{{ searchItem.snippet.title }} </mat-card-title>
+      <mat-card-subtitle class="card-subtitle">{{ searchItem.snippet.publishedAt | date:'fullDate' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <div class="desc-wrapper">
+        <h3 class="desc-title">Description:</h3>
+        <p class="description-content">{{ searchItem.snippet.description }}</p>
+      </div>
+      <app-card-details-list [statistics]="searchItem.statistics"></app-card-details-list>
+    </mat-card-content>
+  </mat-card>
+
+  </div>
+

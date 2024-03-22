@@ -1,0 +1,13 @@
+@import '../../../../mixin.scss';
+
+.card-details {
+  @include flex-center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}

@@ -3,10 +3,12 @@
 
 :root {
   --blue: #3f51b5;
+  --super-light-gray: #f2f2f2;
   --light-gray :#e5e5e5;
   --gray: #929292;
   --dark-gray: #4f4f4f;
   --white: #ffffff;
+  --black: #000000;
 }
 
 html,
@@ -43,4 +45,20 @@ ul {
 
 .filters-btn.mat-flat-button{
   padding: 0;
+}
+
+.main-page-card {
+  .card-details {
+    font-size: 10px;
+  }
+
+  mat-icon.card-icon {
+    width: 15px;
+    height: 13px;
+    font-size: 13px;
+  }
+
+  .card-item:last-child mat-icon.card-icon {
+    width: 13px;
+  }
 }

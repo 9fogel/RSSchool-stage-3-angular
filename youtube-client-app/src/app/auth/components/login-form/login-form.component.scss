@@ -1,0 +1,25 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 45px auto 0;
+  padding: 28px 20px 24px;
+  max-width: 344px;
+  background-color: var(--super-light-gray);
+  border-radius: 5px;
+}
+
+.login-form-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+button.login-form-btn {
+  align-self: flex-end;
+  min-width: 124px;
+  max-width: 124px;
+  font-size: 12px;
+  font-weight: 400;
+}

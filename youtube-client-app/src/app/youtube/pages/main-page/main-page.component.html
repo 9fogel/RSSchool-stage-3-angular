@@ -1,0 +1,2 @@
+<app-filtering-criteria *ngIf="filtersService.filtersShown" (newClickEvent)="applySorting($event)" (newSearchEvent)="applySearch($event)"></app-filtering-criteria>
+<app-search-results *ngIf="searchService.searchValue" [sortingData]="sortingData" [searchFilterValue]="searchFilterValue"></app-search-results>
