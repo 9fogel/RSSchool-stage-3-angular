@@ -1,5 +1,8 @@
 <div class="login-wrapper">
-  <span>Your Name</span>
+  <button class="user-name" mat-button [matMenuTriggerFor]="menu">Your Name</button>
+<mat-menu #menu="matMenu">
+  <button [routerLink]="['/admin']" mat-menu-item >Create New Card</button>
+</mat-menu>
   <div class="login-bg" color="primary">
     <div class="login-icon-wrapper">
       <a class="login-link" (click)="openLoginPage()"></a>

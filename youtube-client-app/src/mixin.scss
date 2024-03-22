@@ -3,3 +3,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin form-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--black);
+}

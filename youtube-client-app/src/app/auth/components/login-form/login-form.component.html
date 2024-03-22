@@ -1,13 +1,26 @@
-<form class="login-form" (submit)="submitLoginForm(loginValue, passwordValue)">
+<form *ngIf="loginForm" [formGroup]="loginForm" class="login-form" (submit)="submitLoginForm()">
   <h2 class="login-form-title">Login</h2>
   <mat-form-field class="form-full-width">
     <mat-label>login</mat-label>
-    <input type="text" class="login-input" [(ngModel)]="loginValue" matInput placeholder="Done Joe" name="login">
+    <input formControlName="login" type="email" class="login-input" matInput placeholder="Done Joe">
+      <mat-error *ngIf="login?.hasError('email') && !login?.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="login?.hasError('required')">
+      Please enter a login email
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>password</mat-label>
-    <input type="password" [(ngModel)]="passwordValue" matInput placeholder="12345678" name="passsword">
+    <input formControlName="password" type="password" matInput placeholder="12345678" [type]="hidePassword ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <mat-error *ngIf="password?.hasError('notStrongPassword') && !password?.hasError('required')">
+      Your password isn't strong enough
+    </mat-error>
+    <mat-error *ngIf="password?.hasError('required')">
+      Please enter a password
+    </mat-error>
   </mat-form-field>
 
   <button class="login-form-btn" mat-flat-button type="submit" color="primary">Login</button>

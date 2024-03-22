@@ -1,0 +1,59 @@
+<form *ngIf="createCardForm" [formGroup]="createCardForm" class="create-card-form" (submit)="submitCreateCardForm()">
+  <h2 class="create-card-form-title">Create new card</h2>
+  <mat-form-field class="form-full-width">
+    <mat-label>Title</mat-label>
+    <input formControlName="title" type="text" class="title-input" matInput>
+    <mat-error *ngIf="title?.hasError('maxlength') && !title?.hasError('required')">
+      The title is too long
+    </mat-error>
+    <mat-error *ngIf="title?.hasError('minlength') && !title?.hasError('required')">
+      The title is too short
+    </mat-error>
+    <mat-error *ngIf="title?.hasError('required')">
+      Please enter a title
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <input formControlName="description" type="text" matInput>
+    <mat-error *ngIf="description?.hasError('maxlength')">
+      The description is too long
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Img</mat-label>
+    <input formControlName="imageLink" type="url" matInput>
+    <mat-error *ngIf="imageLink?.hasError('pattern') && !imageLink?.hasError('required')">
+      The image link is invalid
+    </mat-error>
+    <mat-error *ngIf="imageLink?.hasError('required')">
+      Please enter a link to the image
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Link video</mat-label>
+    <input formControlName="videoLink" type="url" matInput>
+    <mat-error *ngIf="videoLink?.hasError('pattern') && !videoLink?.hasError('required')">
+      The video link is invalid
+    </mat-error>
+    <mat-error *ngIf="videoLink?.hasError('required')">
+      Please enter a link to the video
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Creation date</mat-label>
+    <input formControlName="creationDate" type="date" matInput>
+    <mat-error *ngIf="creationDate?.hasError('isDateInvalid') && !creationDate?.hasError('required')">
+      The date is invalid
+    </mat-error>
+    <mat-error *ngIf="creationDate?.hasError('required')">
+      Please enter a creation date
+    </mat-error>
+  </mat-form-field>
+
+  <button class="create-card-form-btn" [disabled]="!createCardForm.valid" mat-flat-button type="submit" color="primary">Create Card</button>
+</form>

@@ -11,6 +11,11 @@
   color: var(--dark-gray);
 }
 
+.user-name:hover {
+  cursor: pointer;
+  color: var(--blue);
+}
+
 .login-bg {
   position: relative;
   @include flex-center;

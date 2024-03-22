@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import LoginService from 'src/app/core/services/login.service';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { createPasswordValidator } from '../../../shared/custom-validators';
 
 @Component({
   selector: 'app-login-form',
@@ -8,15 +10,40 @@ import LoginService from 'src/app/core/services/login.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export default class LoginFormComponent {
-  constructor(private router: Router, private loginService: LoginService) {}
+  hidePassword = true;
 
-  loginValue = '';
+  loginForm = this.formBuilder.group({
+    login: [
+      '',
+      {
+        validators: [Validators.required, Validators.email],
+      },
+    ],
+    password: [
+      '',
+      {
+        validators: [Validators.required, createPasswordValidator()],
+      },
+    ],
+  });
 
-  passwordValue = '';
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private formBuilder: FormBuilder,
+  ) {}
 
-  submitLoginForm(loginValue: string, passwordValue: string): void {
-    if (loginValue && passwordValue) {
-      this.loginService.saveUserToLocalStorage(loginValue);
+  get login(): AbstractControl<string | null> | null {
+    return this.loginForm.get('login');
+  }
+
+  get password(): AbstractControl<string | null> | null {
+    return this.loginForm.get('password');
+  }
+
+  submitLoginForm(): void {
+    if (this.loginForm?.valid && this.loginForm.value.login) {
+      this.loginService.saveUserToLocalStorage(this.loginForm.value.login);
       this.redirectToMainPage('/youtube');
     }
   }
