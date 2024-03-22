@@ -3,6 +3,7 @@
     <button class="user-name" mat-button [matMenuTriggerFor]="menu">{{ loginService.loginValue }}</button>
     <mat-menu #menu="matMenu">
       <button [routerLink]="['/admin']" mat-menu-item>Create New Card</button>
+      <button [routerLink]="['/admin/cards']" mat-menu-item>Show Custom Cards</button>
     </mat-menu>
     <div class="logout-icon-wrapper" (click)="logout()">
       <mat-icon class="logout-icon" color="primary">logout</mat-icon>
